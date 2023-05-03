@@ -1,0 +1,6 @@
+{
+    "compilerOptions": {
+        "baseUrl": "src"
+    },
+    "include": ["src", "src/redux-toolkit/slice/userReducer.js", "src/adminScreens/message.js"]
+}
