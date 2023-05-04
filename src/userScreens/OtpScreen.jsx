@@ -49,7 +49,7 @@ function OtpScreen() {
         }))
    
 
-          navigate('/') 
+          navigate('/place') 
         
        
         

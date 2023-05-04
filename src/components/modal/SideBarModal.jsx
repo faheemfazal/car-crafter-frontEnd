@@ -31,7 +31,7 @@ function SideBarModal({open , setOpen, location, name}) {
           email: null,
           number: null
          }))
-         navigate('/place')
+         navigate('/')
       }
   return (
     <>

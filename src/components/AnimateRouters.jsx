@@ -9,6 +9,7 @@ import Otp from "userScreens/OtpScreen"
 import Signup from "userScreens/Signup1Screen"
 import HostHomeScreeen from 'userScreens/HostHomeScreeen';
 import ProofDetail from './HostForm.jsx/ProofDetail';
+import ProtectUserRouter from 'Utilites/ProtectUserRouter';
 
 // import WaitforVerify from 'userScreens/HostPaymentsetu';
 import RendUserHomeScreen from 'userScreens/RendUserHomeScreen';
@@ -55,6 +56,9 @@ function AnimateRouters() {
           <Route path='/findPlace'  element={<FindPlace />} ></Route>  
           <Route path='/finddate'  element={<FindDate />} ></Route>  
           <Route path='/carDetails/:carData'  element={<CarDetailsScreen />} ></Route>  
+
+          <Route element={<ProtectUserRouter />} >
+
           <Route path='/checkout/:carId'  element={<CheckoutScreen />} ></Route>  
           <Route path='/verifyOrder'  element={<OrderVerify />} ></Route> 
           <Route path='/uploadproof'  element={<UploadproofScreen />} ></Route> 
@@ -64,7 +68,9 @@ function AnimateRouters() {
           <Route path='/hostVerify'  element={<HostVerifyScreen />} ></Route> 
           <Route path='/chat/:reciverId'  element={<ChatScreen />} ></Route> 
 
-          <Route path='/admin'  element={<AdminLogin />} ></Route>
+          </Route >
+
+            <Route path='/admin'  element={<AdminLogin />} ></Route>
             <Route path='/adminhome'  element={<HomeScreen />} ></Route>
             <Route path='/user'  element={<UserDetail />} ></Route>
             <Route path='/Host-verify'  element={<HostDetailScreen />} ></Route>

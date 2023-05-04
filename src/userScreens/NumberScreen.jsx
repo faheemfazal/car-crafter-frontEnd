@@ -6,18 +6,40 @@ import { useState } from "react";
 import {axiosuser}  from "../axiosLink/axios";
 import Navbar from "components/Navbar";
 import { numberCheck } from "Api/userAuth";
+import { FormValidate } from "Helpers/formValidation";
+import { validatePhone } from "Helpers/formValidation";
 
 
 
 export const Number=()=>{
 
   const [number,setNumber]=useState(null)
+  const [formData, setFormData] = useState({ number: "", });
+  const [errors, setErrors] = useState({});
+    
 
-async function numberVerify(e){
+  const handleInputChange = (event) => {
+    setNumber(event.target.value)
+    console.log(event.target.value,event.target.name,'llllllllllll');
+   
+};
+
+const validateForm = () => {
+  const newErrors = validatePhone({number})
+  console.log(newErrors,'llll/');
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
+
+
+
+      async function numberVerify(e){
     try{
      
       e.preventDefault()
+      
       console.log(number);
+      if (!validateForm()) return;
       const res = await numberCheck(number)
  
       console.log(res);
@@ -55,8 +77,10 @@ async function numberVerify(e){
                  
                 <input type="number" className="placeholder:text-2xl text-xl border rounded-2xl h-16 w-350 ml-5 outline-none focus:outline-dark-purple"  placeholder="Enter number"
                 value={number}
-                onChange={(e)=>{setNumber(e.target.value)}}
+                onChange={handleInputChange}
+                // onChange={(e)=>{setNumber(e.target.value)}}
                 />
+                  {errors.number && (<p className="text-red-500 mt-1 text-xs italic"> {errors.number}</p>)}
               </div>
               <div className="  ">
                 <button className="bg-green-600 w-400  text-white rounded-md h-16    "  type="submit" >CONTINUE</button>

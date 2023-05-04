@@ -49,12 +49,12 @@ function ExpandCheckout() {
     return (
         <div className='bg-slate-100 w-full h-full'>
             <Navbar />
-            <h1 className='m-3 text-2xl font-semibold '>Select a Payment method</h1>
-            <div className='flex justify-center '>
+            <h1 className='m-3 text-2xl font-semibold md:pl-10 '>Select a Payment method</h1>
+            <div className='lg:flex justify-center md:px-10 '>
 
-                <div className='w-4/6 h-full flex justify-end  '>
-                    <div className='w-11/12 h-full  bg-white items-end rounded-xl shadow-xl  border-2 border-gray-300 flex'>
-                        <div className='w-5/12 h-full border-r-2 p-3 pt-3'>
+                <div className='lg:w-4/6 h-full flex justify-top w-full '>
+                    <div className='w-full h-full  bg-white items-top rounded-xl shadow-xl  border-2 border-gray-300 flex'>
+                        <div className='w-6/12 h-full border-r-2 p-3 pt-3'>
                             <h1 className='text-xl bg-slate-200 mt-3'>OTHER PAYMENT METHODS</h1>
                             <div className='p-2 flex-wrap'>
                                 <div className='flex' onClick={() => { setWallet(false); setCreditCard(false); setUpi(true) }}>
@@ -105,7 +105,7 @@ function ExpandCheckout() {
                             </div>
 
                         </div>
-                        <div className='w-7/12 h-full '>
+                        <div className='w-6/12 h-full '>
                             {upi && <div className='h-80 w-full  border-b-2  '>
                                 <div className='flex justify-between'>
                                     <div className='p-4'>
@@ -117,7 +117,7 @@ function ExpandCheckout() {
                                 </div>
                                 <div className='flex'>
 
-                                    <div className='justify-center w-8/12 p-2 '>
+                                    <div className='justify-center w-full p-2 '>
                                         
                                             <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIEND_ID}}>
                                                 <PayPalButtons
@@ -276,9 +276,9 @@ function ExpandCheckout() {
                                     <div>
 
                                     </div>
-                                    <div className=' flex justify-end'>
+                                    {/* <div className=' flex justify-end'>
                                         <button className='p-4 bg-slate-400  mr-3 rounded-xl mt-5'>Pay ₹14470.0</button>
-                                    </div>
+                                    </div> */}
 
 
                                 </div>
@@ -305,7 +305,7 @@ function ExpandCheckout() {
                                   yF2J2zO+85cc7AAAAAElFTkSuQmCC" alt="" className='w-20 h-20 m-5' />
 
                                         </div>
-                                        <div className='w-4/12 p-3  mt-4 flex'>
+                                        {/* <div className='w-4/12 p-3  mt-4 flex'>
                                             <div>
                                                 <div className='h-20 w-0 -mt-6 border-2'>
 
@@ -320,7 +320,7 @@ function ExpandCheckout() {
                                                 <img src={scan} alt="" className='w-28 h-28 ml-3 opacity-50' />
                                             </div>
 
-                                        </div>
+                                        </div> */}
                                     </div>
                                     <div>
 
@@ -343,7 +343,7 @@ function ExpandCheckout() {
                     </div>
 
                 </div>
-                <div className='w-2/6  ml-6 -mt-14'>
+                <div className='w-2/6  ml-6 -mt-14 hidden lg:block'>
 
                     <h1 className=' text-2xl font-semibold m-2 '>Booking Details</h1>
                     <div className='w-96 h-80 bg-white rounded-xl  border-2 shadow-xl border-gray-300'>

@@ -11,9 +11,16 @@ import { setLogin } from "redux-toolkit/slice/userReducer";
 import { getDate } from "Api/findCar";
 import { Link } from "react-router-dom";
 import homeimprove from '../components/assets/1a66b1dffc1c18e0b598ee3bf564e35a5e462a53.jpg'
+import irfad from '../components/assets/WhatsApp Image 2023-05-04 at 16.33.27.jpeg'
+import abin from '../components/assets/irfad.jpeg'
+// import irfad from '../components/assets/WhatsApp Image 2023-05-04 at 16.33.27.jpeg'
+
+
+
 import Footer from "components/Footer";
 import moment from "moment";
 import {message} from "antd";
+
 
 
 
@@ -38,9 +45,9 @@ const Homepage=()=>{
     const dispatch = useDispatch()
 
     const guests =[
-        {img:'',gestName:'abinand, Bengaluru',role:'Flattered with availability of well maintained cars'},
-        {img:'',gestName:'irfad, Delhi',role:`Booked a XUV with unlimited kms, very happy with Zoomcar's service`},
-        {img:'',gestName:'badu, australia',role:'Booked a car for a family trip which was very comfortable and in great condition'}
+        {img:irfad,gestName:'abinand, Bengaluru',role:'Flattered with availability of well maintained cars'},
+        {img:irfad,gestName:'irfad, Delhi',role:`Booked a XUV with unlimited kms, very happy with Zoomcar's service`},
+        {img:irfad,gestName:'badu, australia',role:'Booked a car for a family trip which was very comfortable and in great condition'}
     ]
 
     useEffect(()=>{
@@ -145,14 +152,14 @@ const Homepage=()=>{
 
             
         </div>
-            <h1 className="text-center text-3xl p-4 font-bold text-gray-800">HEAR FROM OUR GUESTS</h1>
+            <h1 className="text-center text-3xl p-4 font-bold text-gray-800 mt-10">HEAR FROM OUR GUESTS</h1>
         <div className="w-full md:w-full  flex justify-center sm:gap-3 gap-2 p-10">
        { guests.map((data,index)=>(
             <div className="flex ">
                 <div>
                 <div className="max-w-sm h-96 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-       <img className="rounded-t-lg" src={homeimprove} alt="" />
+            <a href="#" className="justify-center flex object-fill mt-2">
+       <img className="rounded-t-lg w-60 items-center object-cover flex justify-center" src={data.img} alt=""  />
   </a>
   <div className="p-5">
     <a href="#">

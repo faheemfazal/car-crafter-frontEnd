@@ -118,7 +118,7 @@ function Message({date,name,chatdata,senderId,token,setChatData}) {
            </div>} */}
 
 
-                <div className='h-14 w-full  fixed bottom-0 left-28  border-2 flex p-2 justify-center'>
+                <div className='h-14 w-full  fixed bottom-0 left-28  placeholder-gray-400 flex p-2 justify-center'>
                   
                      <input
                      type="text"

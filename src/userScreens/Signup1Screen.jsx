@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from "framer-motion";
 import {AiOutlineArrowLeft} from 'react-icons/ai'
 import { useNavigate,useLocation } from "react-router-dom";
 import Navbar from 'components/Navbar';
 import {axiosuser} from '../axiosLink/axios';
 import { useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setLogin } from '../redux-toolkit/slice/userReducer';
+import { FormValidate } from 'Helpers/formValidation';
              
 
 
@@ -16,6 +17,12 @@ function Signup1Screen() {
   const navigate = useNavigate([])
   const dispatch = useDispatch()
   const registerForm =useRef()
+  const [email,setEmail]=useState('')
+  const [name,setName]=useState('')
+  const [password,setPassword]=useState('')
+  const [errors,setErrors] = useState({})
+  const userstate = useSelector((state)=>state.userSlice)
+
  
   
   
@@ -24,14 +31,31 @@ function Signup1Screen() {
   const number= state.number
   
 
+  const handleInputChange = () => {
+     setEmail(registerForm.current.email.value);
+     setName(registerForm.current.name.value)
+     setPassword(registerForm.current.password.value)
+     console.log(name,email);
+};
+
+
+
+const validateForm = () => {
+  const data={
+    email,name,password
+  }
+  const newErrors = FormValidate(data)
+  console.log(newErrors,'llll/');
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
+
 
   const signup = async (e)=>{
 
     e.preventDefault()
-    const email = registerForm.current.email.value;
-    const name = registerForm.current.name.value
-    const password = registerForm.current.password.value
-
+  
+    if (!validateForm()) return;
       const  response = await axiosuser({
         url : "/signup",
         method:'post',
@@ -47,6 +71,7 @@ function Signup1Screen() {
         localStorage.setItem("token", JSON.stringify(result));
         console.log(result)
         dispatch(setLogin({
+          ...userstate,
            user:'user',
            id: result.id,
            name: result.name,
@@ -65,7 +90,7 @@ function Signup1Screen() {
 
   return (
    
-    <div className="bg-homepage bg-cover bg-center  relative  ">
+    <div className="bg-white bg-cover bg-center  relative  ">
     <Navbar />
     <motion.div className="w-full  bg-cover bg-center flex flex-col text-center items-center"
     initial={{width:0}}
@@ -73,7 +98,7 @@ function Signup1Screen() {
     exit={{x: window.innerWidth, transition:{duration :0.2} }}>
         <div className=" h-  md:w-600  text-center flex flex-col justify-between ">
             <div >
-          <AiOutlineArrowLeft className="ml-5 text-2xl " onClick={()=>{navigate('/number')}} />
+          <AiOutlineArrowLeft className="ml-5 text-2xl m-2 " onClick={()=>{navigate('/number')}} />
           <h1 className="text-left ml-5 text-2xl">
           Please Fill Some Details
           </h1>
@@ -87,16 +112,25 @@ function Signup1Screen() {
             <input type="number" name='Number' className="text-2xl border text-gray-400 rounded-2xl h-16 w-350 ml-5 outline-none focus:outline-dark-purple pl-4"  placeholder={number} 
     
             />
-          <input type="email" name='email'  className="w-383 pl-4  mt-4  text-2xl text-gray-700 border h-16 rounded-2xl  outline-none focus:outline-dark-purple" placeholder="Email" ></input>
-          <input type="text" name='name'  className="w-383 pl-4  mt-4   text-2xl text-gray-700 border h-16 rounded-2xl   outline-none focus:outline-dark-purple" placeholder="Name (As Per Driving License)" ></input>
-          <input type="text" name='password'   className="w-383 pl-4 mt-4   text-2xl text-gray-700 border h-16 rounded-2xl   outline-none focus:outline-dark-purple" placeholder="password" ></input>
+          <input type="email" name='email'  className="w-383 pl-4  mt-4  text-2xl text-gray-700 border h-16 rounded-2xl  outline-none focus:outline-dark-purple" placeholder="Email" 
+           onChange={handleInputChange}></input>
+                                {errors.emailError && (<p className="text-red-500 mt-1 text-xs italic"> {errors.emailError}</p>)}
+
+          <input type="text" name='name'  className="w-383 pl-4  mt-4   text-2xl text-gray-700 border h-16 rounded-2xl   outline-none focus:outline-dark-purple" placeholder="Name (As Per Driving License)" 
+           onChange={handleInputChange}></input>
+                                {errors.nameError && (<p className="text-red-500 mt-1 text-xs italic"> {errors.nameError}</p>)}
+
+          <input type="text" name='password'   className="w-383 pl-4 mt-4   text-2xl text-gray-700 border h-16 rounded-2xl   outline-none focus:outline-dark-purple" placeholder="password" 
+           onChange={handleInputChange}></input>
+                                {errors.nameError && (<p className="text-red-500 mt-1 text-xs italic"> {errors.nameError}</p>)}
+
           
 
 
 
           </div>
           <div className="">
-            <button className="bg-dark-purple w-400  text-white rounded-md h-16  mb-10 " placeholder="Enter number" type="submit"onClick={signup}  >CONTINUE</button>
+            <button className="bg-green-600 w-400  text-white rounded-md h-16  mb-10 " placeholder="Enter number" type="submit"onClick={signup}  >CONTINUE</button>
 
           </div>
           </form>
