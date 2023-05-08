@@ -11,7 +11,7 @@ import HostNumberVF from "./modal/HostNumberVF";
 import {AiTwotoneBank} from 'react-icons/ai'
 import {BiLogOut} from 'react-icons/bi'
 import {SiTask} from 'react-icons/si'
-import carcrafterlogo from './assets/carcrafterlogo.png'
+import carcrafterlogo  from '../components/assets/carcrafterlogo.png'
 import { checkAcc } from "Api/paymentForOrder";
 import Loader from "loader/Loader";
 

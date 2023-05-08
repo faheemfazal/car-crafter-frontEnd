@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from 'react-redux';
 import { setLogout } from '../redux-toolkit/slice/userReducer';
 import SideBarModal from "./modal/SideBarModal";
-import carcrafterlogo  from './assets/carcrafterlogo.png'
+import carcrafterlogo  from '../components/assets/carcrafterlogo.png'
 
 
 
