@@ -11,7 +11,7 @@ import HostNumberVF from "./modal/HostNumberVF";
 import {AiTwotoneBank} from 'react-icons/ai'
 import {BiLogOut} from 'react-icons/bi'
 import {SiTask} from 'react-icons/si'
-import carcrafterlogo  from '../components/assets/carcrafterlogo.png'
+// import carcrafterlogo  from '../components/assets/carcrafterlogo.png'
 import { checkAcc } from "Api/paymentForOrder";
 import Loader from "loader/Loader";
 
@@ -159,7 +159,7 @@ function HostNavbar() {
               />
             )}
            <div className="flex mt-1 z-0">
-            <img src={carcrafterlogo} alt="" className="h-16 invisible md:visible " />
+            {/* <img src={carcrafterlogo} alt="" className="h-16 invisible md:visible " /> */}
           <h1 className=" invisible md:visible -ml-12 font-bold text-2xl text-center pt-3 ">
           arCrafter
           </h1>
