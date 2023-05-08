@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const axiosuser = axios.create({
   // baseURL: "http://localhost:4000/",
-  baseURL: "https://carcrafter.onrender.com",
+  baseURL: "https://carcrafter.onrender.com/",
   headers: {
     "Content-Type": "application/json",
   },
