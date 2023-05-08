@@ -59,13 +59,13 @@ export const paymentComplete = async (orderId,token)=>{
 }
 
 
-export const checkAcc = async (token,userId)=>{
+export const checkAcc = async (userId)=>{
     try{
         console.log(';');
         const response = await axiosuser({
             url:`/checkAcc?userId=${userId}`,
             method:'get',
-            headers:{'Authorization':`Bearer ${token}`},
+            // headers:{'Authorization':`Bearer ${token}`},
             data:{userId}
 
 

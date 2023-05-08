@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogout } from "../redux-toolkit/slice/userReducer";
 import { motion } from "framer-motion";
@@ -11,6 +11,9 @@ import HostNumberVF from "./modal/HostNumberVF";
 import {AiTwotoneBank} from 'react-icons/ai'
 import {BiLogOut} from 'react-icons/bi'
 import {SiTask} from 'react-icons/si'
+import carcrafterlogo from './assets/carcrafterlogo.png'
+import { checkAcc } from "Api/paymentForOrder";
+import Loader from "loader/Loader";
 
 
 function HostNavbar() {
@@ -19,8 +22,23 @@ function HostNavbar() {
   const [open, setOpen] = useState(false);
   const [openRight, setOpenRight] = useState(false);
   const [numberModal,setNumberModal] =useState(false)
+  const [acc,setAcc] = useState(false)
+  const [loader,setLoader]= useState(false)
+  const { email,name,token,id } = useSelector((state) => state.userSlice);
 
-  const { name,token } = useSelector((state) => state.userSlice);
+  useEffect(()=>{
+    if(name){
+      setLoader(true)
+      checkAcc(id).then((res)=>{
+       setLoader(false)
+         console.log(res);
+         if(res.status === 201){
+           setAcc(true)
+         }
+      })
+    }
+  },[])
+  console.log(acc);
 
   const handleHostForm = ()=>{
     if(token){
@@ -33,7 +51,11 @@ function HostNavbar() {
   }
 
   const loginPage = () => {
-    navigate("/login");
+
+    if(!name){
+
+      navigate("/login");
+    }
   };
   const userLogout = () => {
     dispatch(
@@ -54,7 +76,7 @@ function HostNavbar() {
           // initial={{ width: 0 }}
           // animate={{ width: "" }}
           // exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
-          className={openRight ? "bg-slate-300 w-56 md:w-72 h-screen absolute right-0 " : "bg-slate-300  w-56 md:w-96 h-screen absolute"}
+          className={openRight ? "bg-slate-300 w-56 z-50 md:w-72 h-screen absolute right-0 " : "bg-slate-300 z-50  w-56 md:w-96 h-screen absolute"}
         >
           <BiLeftArrowAlt
             onClick={() => {
@@ -63,7 +85,7 @@ function HostNavbar() {
             }}
             className={openRight ? "bg-white text-green-600  text-3xl rounded-full absolute -left-4 rotate-180 top-4 border mt-2 border-green-600" : "bg-white text-dark-purple  text-3xl rounded-full absolute -right-4 top-3 border border-dark-purple"}
           />
-          <div className="flex  justify-items-center w-full h-20 bg-green-600  duration-75">
+          <div className="flex  justify-items-center w-full h-20 bg-green-600 z-50  duration-75">
             <AiOutlineUser className="m-4  text-4xl  text-white"  />
             <motion.button
               // onClick={loginPage}
@@ -73,7 +95,7 @@ function HostNavbar() {
               className=" text-white text-right ml-4  "
               href=""
             >
-              Login/Signup
+            { email ? email : 'Login/Signup' }
             </motion.button>
           </div>
           <div className="flex pt-6 justify-items-center duration-75 relative">
@@ -86,7 +108,7 @@ function HostNavbar() {
               Change City
             </button>
           </div>
-          <div className="flex pt-6 justify-items-center duration-75 relative">
+   {  acc   && name && <div className="flex pt-6 justify-items-center duration-75 relative">
             <AiTwotoneBank className="text-black text-2xl ml-5" />
             <button
               onClick={()=>navigate('/bankDetail')}
@@ -95,7 +117,7 @@ function HostNavbar() {
             >
               Change Account
             </button>
-          </div>
+          </div>}
           <div className="flex pt-6 justify-items-center duration-75 relative">
             <SiTask className="text-black text-2xl ml-5" />
             <button
@@ -129,16 +151,19 @@ function HostNavbar() {
               ""
             ) : (
               <AiOutlineMenu
-                className="sm:text-white text-white h-8  w-12 invisible  md:visible absolute md:fixed "
+                className="sm:text-white text-white h-8 mt-4 z-50  w-12 invisible  md:visible absolute md:fixed "
                 onClick={() => {
                   setOpen(true);
                   
                 }}
               />
             )}
-            <h1 className={open ? 'invisible' :"font-bold text-2xl text-center md:ml-16 ml-0  "}>
-            CarCrafter
-            </h1>
+           <div className="flex mt-1 z-0">
+            <img src={carcrafterlogo} alt="" className="h-16 invisible md:visible " />
+          <h1 className=" invisible md:visible -ml-12 font-bold text-2xl text-center pt-3 ">
+          arCrafter
+          </h1>
+          </div>
           </div>
         </div>
         <div className=" flex  ">
@@ -175,7 +200,7 @@ function HostNavbar() {
 
         </div>
       </div>
-     
+      {loader ?   <Loader loader={loader} /> : null}
     </div>
   );
 }

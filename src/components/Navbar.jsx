@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from 'react-redux';
 import { setLogout } from '../redux-toolkit/slice/userReducer';
 import SideBarModal from "./modal/SideBarModal";
-
+import carcrafterlogo  from './assets/carcrafterlogo.png'
 
 
 
@@ -95,7 +95,7 @@ const Navbar = ({hide}) => {
       )} */}
 
       <div className="w-full h-20 bg-black  flex justify-between text-white p-0 md:p-4  items-center  ">
-        <div className="md:flex gap-10 ">
+        <div className="md:flex gap- ">
           <div className="p-5 text-3xl pt-14 md:pt-5 drop-shadow-lg font-bold text-white ">
             <div className=" ">
 
@@ -104,9 +104,12 @@ const Navbar = ({hide}) => {
             </div>
             <div></div>
           </div>
-          <h1 className=" invisible md:visible font-bold text-2xl text-center pt-3 ">
+          <div className="flex mt-1">
+            <img src={carcrafterlogo} alt="" className="h-16 invisible md:visible " />
+          <h1 className=" invisible md:visible -ml-12 font-bold text-2xl text-center pt-3 ">
           CarCrafter
           </h1>
+          </div>
         </div>
         <div className="">
           <ul className="md:flex gap-10  uppercase md:p-6  ">

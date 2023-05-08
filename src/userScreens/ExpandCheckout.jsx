@@ -35,7 +35,6 @@ function ExpandCheckout() {
       console.log(data);
 
       const res = await expandTime(data,token)
-      console.log(res,';;;;;;;;;;;;;;');
       
       if(res.status === 201){
         

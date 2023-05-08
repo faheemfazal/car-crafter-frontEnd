@@ -278,7 +278,7 @@ completeOrder.map((data,index)=>(
 
              </div>
              <div className='w-full flex justify-end mb-4'>
-                  {new Date(data.endDate) < date  ?  <button className='text-white hover:bg-green-900 font-bold  bg-green-600 p-3 w-32 rounded-xl mr-6 ' onClick={()=>handleComplete(data._id)} >Complite</button> : <button className='text-white font-bold  bg-green-200 p-3 w-32 rounded-xl mr-6  '>Complite</button> }
+                  {new Date(data.endDate) < date  ?  <button className='text-white hover:bg-green-900 font-bold  bg-green-600 p-3 w-32 rounded-xl mr-6 ' onClick={()=>handleComplete(data._id)} >Complete</button> : <button className='text-white font-bold  bg-green-200 p-3 w-32 rounded-xl mr-6  '>Complite</button> }
 
                  </div>
              

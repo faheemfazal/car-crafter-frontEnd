@@ -18,7 +18,7 @@ function HostVerifyScreen() {
     console.log(token,id);
     useEffect(()=>{
       setLoader(true)
-       checkAcc(token,id).then((res)=>{
+       checkAcc(id).then((res)=>{
         setLoader(false)
           console.log(res);
           if(res.status === 201){
