@@ -42,7 +42,7 @@ import moment from 'moment'
 
   
      <AdminSidebar />
-    <div className=' p-10 h-full items-center'>
+    <div className=' p-10 h-full w-full items-center'>
         <h1 className='text-xl mb-2'>Host Details</h1>
         <div className='flex'>
             <button className={`${hostData[0]?.status === 'pending' && 'border-b-4 border-yellow-600'} pl-3 pr-3 text-lg `} value={'pending'} onClick={approveAndDenile}>Pending</button>
@@ -52,7 +52,7 @@ import moment from 'moment'
         </div>
         <div className='overflow-auto rounded-lg shadow hidden sm:block'>
         <table className='w-full'>
-            <thead className='bg-gray-50 border-b-2 border-gray-200'>
+            <thead className='bg-gray-50 border-b-2 border-gray-200 w-full'>
                 <tr className=''>
                     <th className='p-3 text-sm font-semibold tracking-wide text-left'>NO.</th>
                     <th className='p-3 text-sm font-semibold tracking-wide text-left'>Details</th>
@@ -72,7 +72,7 @@ import moment from 'moment'
                     <ViewApprove open={isOpen} setOpen={setIsOpen} carData={hostData[count]}  token={token} />
                     <td className='p-3 text-sm text-gray-700 whitespace-nowrap' ><span className={`p-1.5 text-xs font-medium uppercase tracking-wider
                      ${hostData[0]?.status === 'pending' && 'text-yellow-800 bg-yellow-200' } ${hostData[0]?.status === 'Denial' && 'text-red-800 bg-red-200' } ${hostData[0]?.status === 'Approved' && 'text-green-800 bg-green-200' } rounded-lg bg-opacity-50`}>{data.status}</span></td>
-                    <td className='p-3 text-sm text-gray-700 whitespace-nowrap' >{data.createdAt}</td>
+                    <td className='p-3 text-sm text-gray-700 whitespace-nowrap' >{moment(data.createdAt).format('DD,MM,YYYY , h : mm A')}</td>
                     <td className='p-3 text-sm text-gray-700 whitespace-nowrap' >{data.carNumber}</td>
     
                 </tr>)

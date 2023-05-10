@@ -47,9 +47,14 @@ function OtpScreen() {
            email: result.email,
            number:result.number
         }))
+        if(oldDate.place === null){
+
+          navigate('/')
+        }else{
+          navigate('/place')
+        }
    
 
-          navigate('/place') 
         
        
         

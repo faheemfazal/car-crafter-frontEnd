@@ -109,7 +109,7 @@ function RendUserHomeScreen() {
                 <div className='mt-3'>
                     <div className='flex justify-between'>
                         <h1 className='text-xl ml-2'>Sort by</h1>
-                        <h1 className='font-bold text-2xl text-green-600 '>Reset</h1>
+                        <h1 className='font-bold text-2xl text-green-600 mr-2'>Reset</h1>
 
                     </div>
                         <h1 className='text-xl ml-2'>Price</h1>
@@ -140,7 +140,7 @@ function RendUserHomeScreen() {
                         <h1 className='text-xl'>Seats</h1>
                     </div>
                 </div>
-                <div className=' border-gray-300 w-full  rounded-lg h-24 flex flex-wrap gap-y-0 p-3 '>
+                {/* <div className=' border-gray-300 w-full  rounded-lg h-24 flex flex-wrap gap-y-0 p-3 '>
                         <div className='w-1/4 h-4/5 border-2 p-3 items-center'>
                              <h1 className='pt-1'>5 seats</h1>
                         </div>
@@ -156,11 +156,11 @@ function RendUserHomeScreen() {
                         <h1 className='pt-1'>10 seats</h1>
 
                         </div>
-                 </div>
+                 </div> */}
 
                  <div className='ml-3'>
                     <div className='flex '>
-                        <h1 className='text-xl'>Transmission</h1>
+                        <h1 className='text-xl mt-8'>Transmission</h1>
                     </div>
                 </div>
                 <div className=' border-gray-300 w-full  rounded-lg h-24 flex flex-wrap gap-y-0 p-3 '>
@@ -197,14 +197,14 @@ function RendUserHomeScreen() {
                  
                       
                  </div>
-                 <div className='flex p-4'>
+                 {/* <div className='flex p-4'>
                     <AiFillCar className='text-4xl' />
                     <div className='ml-2'>
                     <h1 className='text-xl'>Include specific cars</h1>
                     <p className='text-xs'>Any specific model in mind? Find it here. We will include them to search</p>
                     <input type="text" placeholder='Try search Car' className='border-2 outline-none rounded-sm  ' />
                     </div>
-                </div>
+                </div> */}
                 <hr />
 
             </div>)}

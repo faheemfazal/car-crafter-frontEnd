@@ -43,7 +43,7 @@ function HostHomeScreeen() {
         <ImageSlider slider={slider} />
       </div>
       <div>
-      <div className="w-full  lg:px-28 px-4 md:pt-14 ">
+      <div className="w-full  lg:px-28 px-4 md:pt-14 pt-12 ">
         <div >
            <h1 className="text-xl text-gray-500">How to earn money with CarCrafter</h1>
            <h1>    CarCrafter Host is a program where car owners in Pune can earn money by sharing their car with other individuals. CarCrafter host ensures a safe and seamless earning journey for you and your car

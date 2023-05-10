@@ -7,6 +7,7 @@ import AdminNavbar from 'components/AdminNavbar'
 
 
 
+
 function OrderVerifyAd() {
 
     const [order,setorder] = useState([])
@@ -23,7 +24,7 @@ function OrderVerifyAd() {
     <AdminNavbar />
     <div className='flex'>
          <AdminSidebar />
-         <div className=' p-10 h-full items-center'>
+         <div className=' p-10 h-full w-full items-center'>
         <h1 className='text-xl mb-2'>Order Details</h1>
         <div className='flex'>
             <button className={` 'border-b-4 border-yellow-600' pl-3 pr-3 text-lg `} value={'pending'} >Pending</button>

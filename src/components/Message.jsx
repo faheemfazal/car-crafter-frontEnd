@@ -7,8 +7,8 @@ import  io from "socket.io-client";
 import { message } from 'antd'
 
 
-let socket = io.connect("https://carcrafter.onrender.com");
-// let socket = io.connect("http://localhost:4000");
+// let socket = io.connect("https://carcrafter.onrender.com");
+let socket = io.connect("http://localhost:4000");
 
 function Message({date,name,chatdata,senderId,token,setChatData}) {
     const [msg,setMsg]= useState('')
@@ -75,7 +75,7 @@ function Message({date,name,chatdata,senderId,token,setChatData}) {
                 <div className='h-16 w-full  flex'>
                 <div className='flex bg-gray-400 w-full h-16 ' >
                     <div className='p-2 w-12 h-12 rounded-full bg-slate-50 m-2'>
-                        <AiOutlineUser  className='text-3xl'/>
+                        <AiOutlineUser  className='text-3xl '/>
                        
                     </div>
                     <h1 className='text-xl text-black font-bold p-4'>{chatdata.memdersData[0].name}</h1>
@@ -119,7 +119,7 @@ function Message({date,name,chatdata,senderId,token,setChatData}) {
            </div>} */}
 
 
-                <div className='h-14 w-full  fixed bottom-0 left-28  placeholder-gray-400 flex p-2 justify-center'>
+                <div className='h-14 w-full  fixed bottom-0 left-28   placeholder-gray-400 flex p-2 justify-center'>
                   
                      <input
                      type="text"
@@ -129,8 +129,8 @@ function Message({date,name,chatdata,senderId,token,setChatData}) {
                      className='sm:w-64'
                    />
 
-                    <div className='rounded-full p-1.5 border-2 ml-2 ' onClick={sendChat}>
-                        <AiOutlineSend  className='text-xl' />
+                    <div className='rounded-full p-1.5 -2 ml-2 ' onClick={sendChat}>
+                        <AiOutlineSend  className='text-xl mt-1' />
                     </div>
                 </div>
                     {/* <div className='rounded-full p-1.5 border-2 ml-2 '>

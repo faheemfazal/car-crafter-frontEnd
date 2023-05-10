@@ -90,7 +90,7 @@ const Landing = ()=>{
                 { state ?
                     
              (   <div className="w-8/12  sm:w-600     mx-auto  bg-white  rounded-lg border-stone-300 border-2 p-2 "  >
-                   { locations.map((data,index)=>
+                   { locations?.map((data,index)=>
                     (<button className="text-left pl-8 cursor-pointer   w-full h-12 font-bold bg-white hover:bg-slate-100 pt-1 "  value={data.city} onClick={()=>placeData(data.city)} key={index} >{data.city}</button>)
                    )}
                   </div> ) : (<div className="sm:h-52 h-28">

@@ -46,7 +46,7 @@ export const deleteLocation = async (token,deleteId)=>{
 export const getLandingLocations = async () =>{
     try{
         const response = await axiosuser.get('/landinglocation')
-        console.log(response);
+        console.log(response,'kkkkk');
         return response.data.city
     }catch(e){
         console.log(e);

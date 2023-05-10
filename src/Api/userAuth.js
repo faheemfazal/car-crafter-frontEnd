@@ -16,3 +16,21 @@ export const numberCheck = async (number)=>{
 
     }
 }
+export const googleAuthentication = async (data)=>{
+  try{
+      console.log('llllllll');
+      const res = await axiosuser({
+            url : "/googleAuthentication",
+            method:'post',
+            data:data
+      })
+      console.log(res,'llsdkl');
+      
+
+      return res
+
+  }catch{
+
+  }
+}
+

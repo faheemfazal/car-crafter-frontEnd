@@ -27,14 +27,14 @@ function HostPaymentsetu() {
     const navigate = useNavigate()
 
     useEffect(()=>{
-      setLoader(true)
+      
        findAccount(token,id).then((res)=>{
+        
          console.log(res);
-         setLoader(false)
          if(res.status === 201){
           setOldAcvalue(res.data.oldAccount.bankAccount)
          }else{
- 
+           
          }
 
        })

@@ -6,27 +6,44 @@ import { GoogleLoginButton } from "react-social-login-buttons";
 import {axiosuser} from "../axiosLink/axios";
 import Navbar from "components/Navbar";
 import image from '../components/assets/fb65fcc43b8bededb813e093ea2d47d3 (1).svg'
+import { googleAuthentication } from "Api/userAuth";
+import { useDispatch,useSelector } from "react-redux";
+import { setLogin } from "redux-toolkit/slice/userReducer";
 
 function LoginScreens() {
+
+  const dispatch = useDispatch()
+  const oldDate = useSelector((state)=>state.userSlice)
+  console.log(oldDate);
+
   const emailverify = async (data) => {
     try {
-      const response = console.log(data);
-      await axiosuser({
-        url: "/Login",
-        method: "post",
-        data: {
-          data,
-        },
-      });
-      console.log("dlksgjeanj");
-      console.log(response);
-      if (response === 200) {
-        console.log("njan faheem");
-        console.log(response);
+      const res = await googleAuthentication(data)
+      console.log(res,'kkk');
+      if (res.status === 200) {
+        const result = res.data
+        console.log(result,'lll');
+        dispatch(setLogin({
+          ...oldDate,
+           user:'user',
+           id: result.id,
+           name: result.name,
+           token: result.token,
+           email: result.email,
+           number:result.number
+        }))
+        if(oldDate.place === null){
+
+          navigate('/')
+        }else{
+          navigate('/place')
+        }
       } else {
-        console.log("nooo");
+        
       }
-    } catch {}
+    } catch {
+
+    }
   };
 
   const navigate = useNavigate();

@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from 'react-redux';
 import { setLogout } from '../redux-toolkit/slice/userReducer';
 import SideBarModal from "./modal/SideBarModal";
-// import carcrafterlogo  from '../components/assets/carcrafterlogo.png'
+// import carcrafterlogo  from './assets/carcrafterlogo.png'
 
 
 
@@ -106,7 +106,7 @@ const Navbar = ({hide}) => {
           </div>
           <div className="flex mt-1">
             {/* <img src={carcrafterlogo} alt="" className="h-16 invisible md:visible " /> */}
-          <h1 className=" invisible md:visible -ml-12 font-bold text-2xl text-center pt-3 ">
+          <h1 className=" invisible md:visible  font-bold text-2xl text-center pt-3 ">
           CarCrafter
           </h1>
           </div>

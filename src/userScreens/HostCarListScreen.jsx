@@ -92,18 +92,18 @@ function HostCarListScreen(){
           <h1 className='lg:text-xl text-lg text-center text-white m-4'>LIVE & UPCOMING BOOKINGS</h1>
         </div>
         <div className={`w-1/3 h-full border-b-8 ${complete && 'border-green-600'} `}>
-        <h1 className='lg:text-xl text-lg text-center text-white m-4' onClick={()=>{setLive(false);setCars(false); setComplete(true)}}>COMPLETED BOOKING</h1>
+        <h1 className='lg:text-xl text-lg text-center text-white m-4' onClick={()=>{setLive(false);setCars(false); setComplete(true)}}>COMPLETED ORDER</h1>
 
         </div>
         <div className={`w-1/3 h-full border-b-8 ${cars && 'border-green-600'} `}  onClick={()=>{setLive(false);setComplete(false);setCars(true); }}>
-          <h1 className='lg:text-xl text-lg text-center text-white m-4'>CANCELLED BOOKING</h1>
+          <h1 className='lg:text-xl text-lg text-center text-white m-4'>Your cars</h1>
 
         </div>
 
       </div>
       {cars &&
 carDetails.map((data,index)=>(
-<div className='flex w-full h-40'>
+<div className='flex w-full h-56 border-2'>
             <div className='w-1/4  h-full border-r-2 border-gray-200'>
             <img src={data.imageCar[0].filesUploaded[0].url} alt="" className='w-48 h-36 items-center text-center' />
 
@@ -114,20 +114,15 @@ carDetails.map((data,index)=>(
           </div>
          <div className='h-4/5 w-2/4'>
            <div className='w-full h-10 '>
-               <h1 className='items-center  text-center pt-3 text-xl'>SHEDULED PICKUP & DROPOFF</h1>
-               <div className='flex justify-between'>
-                 <div className='w-6/12 lg:p-6 md:pt-6 pl-1 pt-2'>
-                   <h1 className='text-xl '>{moment(data.startDate).format('h : mm A ')}</h1>
-                   <h1 className='m'>{moment(data.startDate).format('DD MMM, YYYY')}</h1>
-
-                 </div>
-              
-                 <div className='w-6/12 lg:p-6 md:pt-6 pl-1 pt-2'>
-                 <h1 className='text-xl text-end '>{moment(data.endDtae).format('h : mm A')}</h1>
-                   <h1 className='m text-end'>{moment(data.startDate).format('DD MMM, YYYY')}</h1>
-                 </div>
-
-               </div>
+               <h1 className='items-center  text-center pt-3 text-xl'>Car Details</h1>
+               <div className=' m-4 font- '>
+                  <h1>Car Number : {data.carNumber}</h1>
+                  <h1>Number : {data.sNumber}</h1>
+                  <h1>City :{data.city} </h1>
+                  <h1>Location :{data.neighbourhood} </h1>
+                  <h1 className='font-'>From : <span>{data.city}</span></h1>
+                    <h1 className='font-'>Car : <span>{data.brand}</span></h1>
+                </div>
            </div>
            <div>
 
@@ -146,7 +141,7 @@ carDetails.map((data,index)=>(
 completeOrder.map((data,index)=>(
 <div className='flex w-full h-48 border-2'>
             <div className='w-1/4  h-full border-r-2 border-gray-200'>
-            <img src={data.carData.imageCar[0].filesUploaded[0]?.url} alt="" className='w-48 h-36 items-center text-center' />
+            <img src={data.hosterDetails.imageCar[0].filesUploaded[0]?.url} alt="" className='w-48 h-36 items-center text-center' />
 
           </div>
           <div className='w-1/4 h-full border-r-2 border-gray-200 p-5'>
@@ -245,12 +240,12 @@ completeOrder.map((data,index)=>(
              <div className='w-full h-full flex'>
               <div className='w-7/12'>
                 <div className=' m-4 font- '>
-                  <h1>Car Number : {data.carData.carNumber}</h1>
-                  <h1>Number : {data.carData.sNumber}</h1>
-                  <h1>City :{data.carData.city} </h1>
-                  <h1>Location :{data.carData.neighbourhood} </h1>
-                  <h1 className='font-'>From : <span>{data.carData.city}</span></h1>
-                    <h1 className='font-'>Car : <span>{data.carData.brand}</span></h1>
+                  <h1>Car Number : {data.hosterDetails.carNumber}</h1>
+                  <h1>Number : {data.hosterDetails.sNumber}</h1>
+                  <h1>City :{data.hosterDetails.city} </h1>
+                  <h1>Location :{data.hosterDetails.neighbourhood} </h1>
+                  <h1 className='font-'>From : <span>{data.hosterDetails.city}</span></h1>
+                    <h1 className='font-'>Car : <span>{data.hosterDetails.brand}</span></h1>
                 </div>
       
                 <div className='justify-between m- flex'>
@@ -266,8 +261,8 @@ completeOrder.map((data,index)=>(
               </div>
               <div className='w-5/12 h-48 border-2 '>
                 <div className='flex m-5 bg-gray-400'>
-                  <img  alt="" className='w-12 h-12 bg-cover m-1' />
-                  <h1 className='text-xl m-2'>{data.carData.carNumber} OWNER</h1>
+                  
+                  <h1 className='text-xl m-2'>{data.ownerDetails?.name} {`(${data.ownerDetails?.number})`}</h1>
                 </div>
                 <div className='m-5'>
 
