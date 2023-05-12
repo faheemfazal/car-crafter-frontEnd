@@ -12,7 +12,7 @@ export const uploadprofile = async (token,userId,drivingLicense,identitycard)=>{
                 userId,drivingLicense,identitycard
             }
         }) 
-        console.log(response);
+        
         return response
 
     }catch{
@@ -28,7 +28,7 @@ export const checkprofile = async (token,userid)=>{
             headers:{'Authorization':`Bearer ${token}`},
             
         })
-        console.log(response);
+        
         return response
 
     }catch{

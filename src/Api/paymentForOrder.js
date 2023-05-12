@@ -13,7 +13,7 @@ export const compliteOrderForPayment = async(token)=>{
 
         })
 
-        console.log(response);
+        
         return response
 
     }catch(e){
@@ -31,7 +31,6 @@ export const getAccountdetails = async(userId,token)=>{
 
         })
 
-        console.log(response,'lllllllllllllll');
         return response
 
     }catch(e){
@@ -49,7 +48,7 @@ export const paymentComplete = async (orderId,token)=>{
 
 
         })
-        console.log(response);
+        
         return response
 
     }catch{
@@ -61,7 +60,7 @@ export const paymentComplete = async (orderId,token)=>{
 
 export const checkAcc = async (userId)=>{
     try{
-        console.log(';');
+        
         const response = await axiosuser({
             url:`/checkAcc?userId=${userId}`,
             method:'get',
@@ -70,7 +69,7 @@ export const checkAcc = async (userId)=>{
 
 
         })
-        console.log(response);
+        
         return response
 
     }catch{

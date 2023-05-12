@@ -15,7 +15,6 @@ function OrderVerifyAd() {
     const {token} = useSelector((state)=>state.adminSlice)
     useEffect(()=>{
       getOrder(token).then((res)=>{
-          console.log(res);
           setorder(res.data)
       })
     },[])

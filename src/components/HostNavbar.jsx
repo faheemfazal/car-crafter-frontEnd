@@ -34,7 +34,6 @@ function HostNavbar() {
       setLoader(true)
       checkAcc(id).then((res)=>{
        setLoader(false)
-         console.log(res);
          if(res.status === 201){
            setAcc(true)
          }
@@ -61,7 +60,6 @@ function HostNavbar() {
       navigate('/host/form')
     }else{
       setNumberModal(true)
-      console.log('set');
       
     }
   }

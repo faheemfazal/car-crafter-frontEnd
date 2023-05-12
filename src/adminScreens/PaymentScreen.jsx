@@ -16,7 +16,7 @@ function PaymentScreen() {
   
   useEffect(()=>{
      compliteOrderForPayment(token).then((res)=>{
-        console.log(res);
+        
         if(res.status === 201){
             sethostData(res.data.orders)
         }else{
@@ -25,7 +25,7 @@ function PaymentScreen() {
 
      })
   },[])
-  console.log(hostData,'kjjjjjj');
+  
 
   return (
     <div>

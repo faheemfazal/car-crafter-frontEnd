@@ -29,7 +29,7 @@ function HostCarListScreen(){
     const {id,token} = useSelector((state)=>state.userSlice)
 
     const getChat =async (userId)=>{
-      console.log(userId);
+      
       const res = await createChat(id,userId,token)
       console.log(res.data);
       if(res.status === 200){
@@ -42,7 +42,7 @@ function HostCarListScreen(){
       setLoader(true)
       getuserCar(id,token).then((res)=>{
         setLoader(false)
-        console.log(res);
+        
         if(res.status === 201){
             const orders = res.data.Orders
             const completeOrders = orders.filter(order => order.orderStatus.includes('complete'))
@@ -55,7 +55,7 @@ function HostCarListScreen(){
     },[orderComplete])
     const handleComplete = async (orderId)=>{
       const res = await UpdateCompleteOrder(orderId,token)
-      console.log(res);
+      
       if(res.status === 201){
         setOrderComplete(res.data.data.status)
         message.success('success').then((res)=>{

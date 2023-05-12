@@ -22,14 +22,12 @@ import moment from 'moment'
     const approveAndDenile =async(e)=>{
         const newStatus = e.target.value
         const res = await getapproveAndDenile(token,newStatus)
-        console.log(res);
         setHostDAta(res)
 
     }
     useEffect(()=>{
         if(!isOpen){
             getHosttData(token).then((res)=>{
-                console.log(res);
                 setHostDAta(res)
             })
         }

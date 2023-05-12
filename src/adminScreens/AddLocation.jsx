@@ -25,13 +25,13 @@ function AddLocation() {
             setOldCity(res.hostcityAndStateCode)
             setOldState(res.hostcityAndStateCode)
             setAvilableCity(res.oldLocation)
-            console.log(avilableCity);
+            
         })
     },[addAndSee,deleteRe])
     const Locationhandle =async (e)=>{
-        console.log(e.target.value);
+        
         const res= await deleteLocation(token,e.target.value)
-        console.log(res);
+       
         if(res.status === 201){
             setDeleteRe(true)
         }
@@ -39,9 +39,9 @@ function AddLocation() {
     }
     const submitLocation =async (e)=>{
         e.preventDefault()
-        console.log("ddddddd",token,state,city);
+        
         const res = await createLocation(token,state,city)
-        console.log(res);
+       
         if(res.status === 200){
             setAddAndSee(false)
         }else{

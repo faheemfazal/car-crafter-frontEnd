@@ -20,7 +20,6 @@ function HostNumberVF({open,setOpen,children}) {
   }
     
     if(!open) return null;
-    console.log('modal');
   return (
     <>
     <div className='fixed top-0 bottom-0 bg-black rounded z-5 0 right-0 left-0 opacity-80' onClick={()=>setOpen(false)} />

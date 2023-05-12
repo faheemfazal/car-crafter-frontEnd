@@ -43,7 +43,7 @@ function HomeScreen() {
   }
 
 
-  console.log(months,';;;;;;;;;;;;;;;,');
+
 
 
   
@@ -51,7 +51,7 @@ function HomeScreen() {
     if(!data){
       console.log('....');
       getdashBord().then((res)=>{
-       console.log(res);
+       
        if(res.status === 200){
            
          setPieData(res.data.data)
@@ -68,14 +68,11 @@ function HomeScreen() {
 
   },[])
   let newPieData=[]
-  console.log(pieData,);
-  console.log(pending,'llllllll');
  
   useEffect(() => {
     // Generate random data for the bar graph
 
     if(data){
-      console.log(pieData,'/////////////////?');
     
       const newBarData = [];
       for (let i = 0; i < 5; i++) {
@@ -90,7 +87,7 @@ function HomeScreen() {
       const newPieData = [];
       const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF'];
       for (let i = 0; i <pieData.length; i++) {
-        console.log();
+        
         newPieData.push({
           name: `Pie ${i}`,
           value: pieData[i],
@@ -109,7 +106,7 @@ function HomeScreen() {
   }
   }, [data]);
 
-  console.log(pieData,';lll;l');
+ 
 
 
   

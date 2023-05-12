@@ -15,7 +15,7 @@ function UserDetail() {
   const {token} = useSelector((state)=>state.adminSlice)
   useEffect(()=>{
      getUser(token).then((res)=>{
-      console.log(res);
+      
       if(res.status === 201){
        
           setUsers(res.data.users)
@@ -32,16 +32,16 @@ function UserDetail() {
       if(access){
         
         const res = await blockUser(token,id)
-        console.log(res);
+        
         if(res.status === 201){
           message.success('successfully completed').then((res)=>{
            setRende(!render)
           })
         }
       }else{
-        console.log(access);
+        
         const res = await UnblockUser(token,id)
-        console.log(res);
+        
         if(res.status === 201){
           message.success('successfully completed').then((res)=>{
            setRende(!render)

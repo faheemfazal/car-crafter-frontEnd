@@ -1,4 +1,4 @@
-import React, {  useState,useRef  } from "react";
+import React, { useState, useRef } from "react";
 import { PickerOverlay } from "filestack-react";
 
 import { State, City } from "country-state-city";
@@ -7,35 +7,41 @@ import { postCar } from "Api/hostVerify";
 import { useNavigate } from "react-router-dom";
 import { message } from "antd";
 
-
-
-function CarDetailsForm({ open, children, onclose, setopen, imageRC, imageIC,carNumber, km ,email  }) {
+function CarDetailsForm({
+  open,
+  children,
+  onclose,
+  setopen,
+  imageRC,
+  imageIC,
+  carNumber,
+  km,
+  email,
+}) {
   // const car = carNames.all
-  const statesName = State.getStatesOfCountry('IN') 
+  const statesName = State.getStatesOfCountry("IN");
   const [list, setList] = useState(false);
   const [imageCar, setImageCar] = useState("");
   const [isPickerCar, setIsPickerCar] = useState(false);
-  const [fual,setFual] = useState('')
-  const [noOwner,setNoOwner] = useState('')
-  const [transmission,setTransmission] = useState('')
-  const [state,setState] = useState('')
-  const [city,setCity] = useState('')
-  const hostFormRef = useRef()
-  const navigate =useNavigate()
+  const [fual, setFual] = useState("");
+  const [noOwner, setNoOwner] = useState("");
+  const [transmission, setTransmission] = useState("");
+  const [state, setState] = useState("");
+  const [city, setCity] = useState("");
+  const hostFormRef = useRef();
+  const navigate = useNavigate();
 
-  const {token, id} = useSelector((state)=> state.userSlice)
+  const { token, id } = useSelector((state) => state.userSlice);
 
-
-const stateHandle =(e)=>{
-  e.preventDefault();
-  setState(e.target.value)
-}
-const cityHandle= (e)=>{
-  e.preventDefault();
-  setCity(e.target.value)
-}
-let cityState = City.getCitiesOfState('IN',state)
-
+  const stateHandle = (e) => {
+    e.preventDefault();
+    setState(e.target.value);
+  };
+  const cityHandle = (e) => {
+    e.preventDefault();
+    setCity(e.target.value);
+  };
+  let cityState = City.getCitiesOfState("IN", state);
 
   const fileStackActive = (e) => {
     e.preventDefault();
@@ -54,38 +60,63 @@ let cityState = City.getCitiesOfState('IN',state)
     e.preventDefault();
     setList(false);
   };
-  const carRegister = async(e) =>{
+  const carRegister = async (e) => {
     e.preventDefault();
-    const year = hostFormRef.current.year.value
-    const description = hostFormRef.current.description.value
-    const brand = hostFormRef.current.brand.value
-    const features = hostFormRef.current.features.value
-    const price = hostFormRef.current.price.value 
-    const neighbourhood = hostFormRef.current.neighbourhood.value
-    const sNumber = hostFormRef.current.sNumber.value
-    console.log(year +''+ fual +''+ noOwner +''+ description +''+ transmission 
-      +''+ brand +''+ features +''+ price +''+ state +''+ city +''+ neighbourhood +''+sNumber);
-      console.log(id,token);
-    if(year && fual && noOwner && description && transmission 
-      && brand && features && price && state && city && neighbourhood && sNumber ){
-          const result = await postCar(year,fual,description,noOwner,transmission,brand,
-            features,price,state,city,neighbourhood,sNumber,
-            imageRC,imageIC,km,carNumber,imageCar,email,id,token)
-            
-            console.log(result);
-            if(result.status === 201){
-              navigate('/hostVerify')
-            }
-      }else{     
-             message.error('fill full details')
-            
+    const year = hostFormRef.current.year.value;
+    const description = hostFormRef.current.description.value;
+    const brand = hostFormRef.current.brand.value;
+    const features = hostFormRef.current.features.value;
+    const price = hostFormRef.current.price.value;
+    const neighbourhood = hostFormRef.current.neighbourhood.value;
+    const sNumber = hostFormRef.current.sNumber.value;
+
+    if (
+      year &&
+      fual &&
+      noOwner &&
+      description &&
+      transmission &&
+      brand &&
+      features &&
+      price &&
+      state &&
+      city &&
+      neighbourhood &&
+      sNumber
+    ) {
+      const result = await postCar(
+        year,
+        fual,
+        description,
+        noOwner,
+        transmission,
+        brand,
+        features,
+        price,
+        state,
+        city,
+        neighbourhood,
+        sNumber,
+        imageRC,
+        imageIC,
+        km,
+        carNumber,
+        imageCar,
+        email,
+        id,
+        token
+      );
+
+      if (result.status === 201) {
+        navigate("/hostVerify");
       }
-    
-  }
-  
+    } else {
+      message.error("fill full details");
+    }
+  };
 
   if (!open) return null;
-  
+
   return (
     <>
       <div
@@ -102,7 +133,7 @@ let cityState = City.getCitiesOfState('IN',state)
               the program 🚘 💵 🥳
             </p>
           </div>
-          <form action=""  ref={hostFormRef}>
+          <form action="" ref={hostFormRef}>
             <div className="flex sm:flex-row flex-col pt-3">
               <div className="sm:w-1/2 w-4/5 mt-3 ml-8">
                 <div>
@@ -117,13 +148,37 @@ let cityState = City.getCitiesOfState('IN',state)
                 <br />
                 <span className="">Fual *</span>
                 <div className='w-full   pl-4    text-lg text-gray-700  h-12   focus:outline-dark-purple"'>
-                  <button className={`w-3/12 -2 ${fual == 'Petrol' ? 'bg-green-600' : 'bg-slate-400'}  rounded-lg text-white`} onClick={(e)=>{e.preventDefault(); setFual('Petrol')}}>
+                  <button
+                    className={`w-3/12 -2 ${
+                      fual == "Petrol" ? "bg-green-600" : "bg-slate-400"
+                    }  rounded-lg text-white`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setFual("Petrol");
+                    }}
+                  >
                     Petrol
                   </button>
-                  <button className={`w-3/12 m-3 ${fual == 'Diesel' ? 'bg-green-600' : 'bg-slate-400'}  rounded-lg text-white`} onClick={(e)=>{e.preventDefault(); setFual('Diesel')}}>
+                  <button
+                    className={`w-3/12 m-3 ${
+                      fual == "Diesel" ? "bg-green-600" : "bg-slate-400"
+                    }  rounded-lg text-white`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setFual("Diesel");
+                    }}
+                  >
                     Diesel
                   </button>
-                  <button className={`w-3/12 ${fual == 'Electric' ? 'bg-green-600' : 'bg-slate-400'}  rounded-lg text-white`} onClick={(e)=>{e.preventDefault(); setFual('Electric')}}>
+                  <button
+                    className={`w-3/12 ${
+                      fual == "Electric" ? "bg-green-600" : "bg-slate-400"
+                    }  rounded-lg text-white`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setFual("Electric");
+                    }}
+                  >
                     Electric
                   </button>
                   {console.log(fual)}
@@ -131,16 +186,48 @@ let cityState = City.getCitiesOfState('IN',state)
                 <br />
                 <span>No. of Owners *</span>
                 <div className='w-full   pl-4   text-lg text-gray-700  h-12   focus:outline-dark-purple"'>
-                  <button className={`w-2/12 m-2 ${noOwner == '1st' ? 'bg-green-600' : 'bg-slate-400'}  rounded-lg text-white`} onClick={(e)=>{e.preventDefault(); setNoOwner('1st')}}>
+                  <button
+                    className={`w-2/12 m-2 ${
+                      noOwner == "1st" ? "bg-green-600" : "bg-slate-400"
+                    }  rounded-lg text-white`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setNoOwner("1st");
+                    }}
+                  >
                     1st
                   </button>
-                  <button className={`w-2/12 m-2 ${noOwner == '2nd' ? 'bg-green-600' : 'bg-slate-400'}  rounded-lg text-white`} onClick={(e)=>{e.preventDefault(); setNoOwner('2nd')}}>
+                  <button
+                    className={`w-2/12 m-2 ${
+                      noOwner == "2nd" ? "bg-green-600" : "bg-slate-400"
+                    }  rounded-lg text-white`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setNoOwner("2nd");
+                    }}
+                  >
                     2nd
                   </button>
-                  <button className={`w-2/12 m-2 ${noOwner == '3rd' ? 'bg-green-600' : 'bg-slate-400'}  rounded-lg text-white`} onClick={(e)=>{e.preventDefault(); setNoOwner('3rd')}}>
+                  <button
+                    className={`w-2/12 m-2 ${
+                      noOwner == "3rd" ? "bg-green-600" : "bg-slate-400"
+                    }  rounded-lg text-white`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setNoOwner("3rd");
+                    }}
+                  >
                     3rd
                   </button>
-                  <button className={`w-2/12 m-2 ${noOwner == '4+' ? 'bg-green-600' : 'bg-slate-400'} rounded-lg text-white`} onClick={(e)=>{e.preventDefault(); setNoOwner('4+')}}>
+                  <button
+                    className={`w-2/12 m-2 ${
+                      noOwner == "4+" ? "bg-green-600" : "bg-slate-400"
+                    } rounded-lg text-white`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setNoOwner("4+");
+                    }}
+                  >
                     4+
                   </button>
                 </div>
@@ -156,10 +243,28 @@ let cityState = City.getCitiesOfState('IN',state)
               <div className="sm:w-1/2 w-4/5 mt-3 ml-8">
                 <span>Transmission *</span>
                 <div className='w-full   pl-4 mt-1    text-lg text-gray-700  h-12   focus:outline-dark-purple"'>
-                  <button className={`w-3/12 -2 ${transmission == 'Automatic' ? 'bg-green-600' : 'bg-slate-400'}  rounded-lg text-white`} onClick={(e)=>{e.preventDefault(); setTransmission('Automatic')}}>
+                  <button
+                    className={`w-3/12 -2 ${
+                      transmission == "Automatic"
+                        ? "bg-green-600"
+                        : "bg-slate-400"
+                    }  rounded-lg text-white`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setTransmission("Automatic");
+                    }}
+                  >
                     Automatic
                   </button>
-                  <button className={`w-3/12 m-3 ${transmission == 'Manual' ? 'bg-green-600' : 'bg-slate-400'}  rounded-lg text-white`} onClick={(e)=>{e.preventDefault(); setTransmission('Manual')}}>
+                  <button
+                    className={`w-3/12 m-3 ${
+                      transmission == "Manual" ? "bg-green-600" : "bg-slate-400"
+                    }  rounded-lg text-white`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setTransmission("Manual");
+                    }}
+                  >
                     Manual
                   </button>
                 </div>
@@ -219,7 +324,7 @@ let cityState = City.getCitiesOfState('IN',state)
             {list ? (
               <div className="container  mx-auto w-full h-full flex flex-col">
                 <div className="w-full bg-slate-300 h-12 rounded-md p-3 flex flex-row justify-between  ">
-                  <span>State  </span>
+                  <span>State </span>
                   <span>Kerala</span>
                 </div>
                 <div className="w-full mt-2 bg-slate-300 h-12 rounded-md p-3 flex flex-row justify-between ">
@@ -235,50 +340,57 @@ let cityState = City.getCitiesOfState('IN',state)
               <div className="flex flex-col container  mx-auto">
                 <div className="flex flex-col mt-3">
                   <label>State *</label>
-                  <select name="" id="" onChange={stateHandle} className="w-full   pl-4 mt-1    text-2xl text-gray-700 border h-12 rounded-2xl   outline-none focus:outline-dark-purple">
-                    <option value="">--Slect your state--</option>
-                    
-                   {  
-                    statesName.map((states,index )=>
-                    (<option key={index} value={states.isoCode} >{states.name}</option>)
-                    )
-                   }
-                  </select>
-        
-                </div>
-            { state &&   <div className="flex flex-col mt-3">
-                  <label>City *</label>
-                  <select name="" id="" onChange={cityHandle} className="w-full   pl-4 mt-1    text-2xl text-gray-700 border h-12 rounded-2xl   outline-none focus:outline-dark-purple">
-                    <option value="">--Slect your City--</option>
-                    {console.log(cityState)}
-                   {  
-                  
-                    cityState.map((citys,index )=>
-                    
-                    (<option key={index}  >{citys.name}</option>)
-                    )
-                   }
-                  </select>
-        
-                </div>}
-             { city &&  <div
-                  className="
-                mt-3"
-                >
-                  <span>Neighbourhood *</span>
-                  <input
-                    type="text"
-                    name="neighbourhood"
+                  <select
+                    name=""
+                    id=""
+                    onChange={stateHandle}
                     className="w-full   pl-4 mt-1    text-2xl text-gray-700 border h-12 rounded-2xl   outline-none focus:outline-dark-purple"
-                    placeholder="Neighbourhood"
-                  
-                  ></input>
-                </div>}
+                  >
+                    <option value="">--Slect your state--</option>
+
+                    {statesName.map((states, index) => (
+                      <option key={index} value={states.isoCode}>
+                        {states.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                {state && (
+                  <div className="flex flex-col mt-3">
+                    <label>City *</label>
+                    <select
+                      name=""
+                      id=""
+                      onChange={cityHandle}
+                      className="w-full   pl-4 mt-1    text-2xl text-gray-700 border h-12 rounded-2xl   outline-none focus:outline-dark-purple"
+                    >
+                      <option value="">--Slect your City--</option>
+                      {console.log(cityState)}
+                      {cityState.map((citys, index) => (
+                        <option key={index}>{citys.name}</option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+                {city && (
+                  <div
+                    className="
+                mt-3"
+                  >
+                    <span>Neighbourhood *</span>
+                    <input
+                      type="text"
+                      name="neighbourhood"
+                      className="w-full   pl-4 mt-1    text-2xl text-gray-700 border h-12 rounded-2xl   outline-none focus:outline-dark-purple"
+                      placeholder="Neighbourhood"
+                    ></input>
+                  </div>
+                )}
               </div>
             )}
             <br />
             <div className="flex flex-col container  mx-auto ">
-                <span className="font-bold">UPLOAD UP TO 10 PHOTOS</span>
+              <span className="font-bold">UPLOAD UP TO 10 PHOTOS</span>
               <div className="w-full h-36 shadow-md flex-col bg-blue-100 py-1 px-1  ">
                 {imageCar ? (
                   <img
@@ -317,31 +429,30 @@ let cityState = City.getCitiesOfState('IN',state)
               </div>
             </div>
             <div className="flex flex-col container  mx-auto mt-4">
-                  <h1 className="text-xl font-bold">Let's verify your account</h1>
-                  <p>We will send you a confirmation code by sms on the next step.</p>
-                  <br />
-                  <span>Mobile Phone Number *</span>
-                <input
-                  type="number"
-                  name="sNumber"
-                  className="w-full   pl-4 mt-1    text-2xl text-gray-700 border h-12 rounded-2xl   outline-none focus:outline-dark-purple"
-                  placeholder="Number"
-                ></input>
+              <h1 className="text-xl font-bold">Let's verify your account</h1>
+              <p>
+                We will send you a confirmation code by sms on the next step.
+              </p>
+              <br />
+              <span>Mobile Phone Number *</span>
+              <input
+                type="number"
+                name="sNumber"
+                className="w-full   pl-4 mt-1    text-2xl text-gray-700 border h-12 rounded-2xl   outline-none focus:outline-dark-purple"
+                placeholder="Number"
+              ></input>
             </div>
             <div className="container  flex justify-center mt-4 p-3">
-            <button
-            className="bg-green-600 w-400    text-white rounded-md h-16   text-center items-center "
-            placeholder="Enter number"
-            onClick={carRegister}      
-          >
-            Post Now
-          </button>
+              <button
+                className="bg-green-600 w-400    text-white rounded-md h-16   text-center items-center "
+                placeholder="Enter number"
+                onClick={carRegister}
+              >
+                Post Now
+              </button>
             </div>
           </form>
-        </div> 
-    
-
-      
+        </div>
       </div>
     </>
   );

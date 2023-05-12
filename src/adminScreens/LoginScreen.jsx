@@ -19,12 +19,9 @@ function Login() {
     const submitLogin = async (e) => {
         e.preventDefault()
         const res = await loginAdmin(data)
-        console.log(res,'ith data')
 
         const result = res.data
         if(result.admin){
-            console.log("dfsdfasf");
-            console.log(result);
             dispatch(setLoginAdmin({
                 token:result.token,
                 name:result.name,

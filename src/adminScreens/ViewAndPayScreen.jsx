@@ -21,13 +21,13 @@ function ViewAndPayScreen() {
     const [amount,setAmount] = useState('')
     const navigate = useNavigate()
 
-    console.log(state,'hhhhhhhhhhh');
+    
 
 
     useEffect(()=>{
 
         getAccountdetails(userId,token).then((res)=>{
-            console.log(res);
+            
             if(res.status === 201){
                  setAccount(res.data.account)
                  setAmount(res.data.amount)
@@ -39,7 +39,7 @@ function ViewAndPayScreen() {
 
     const completePayment = async() =>{
        const res = await paymentComplete(state.orderId,token)
-       console.log(res);
+       
        if(res.status === 201){
             message.success('payment complete').then((res)=>{
                 navigate('/PaymentPage')
