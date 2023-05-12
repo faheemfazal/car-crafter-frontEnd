@@ -143,25 +143,25 @@ function HomeScreen() {
       <div className='justify-center '>
         <h1 className='text-3xl'>Orders </h1>
       <div className='flex pt-4'>
-         <h1 className='text-red-600 text-lg'>Pending : </h1>
+         <h1 className='text-blue-700 font-bold text-lg'>Pending : </h1>
     
         <h1 className='text-lg pl-2'>{ pending}</h1>
   
       </div>
       <div className='flex'>
-         <h1 className='text-red-600 text-lg'>cancel : </h1>
+         <h1 className='text-yellow-500 font-bold text-lg'>cancel : </h1>
     
         <h1 className='text-lg pl-2'>{ cancel}</h1>
   
       </div>
       <div className='flex'>
-         <h1 className='text-red-600 text-lg'>complete : </h1>
+         <h1 className='text-green-600 font-bold text-lg'>complete order : </h1>
     
         <h1 className='text-lg pl-2'>{ complete}</h1>
   
       </div>
       <div className='flex'>
-         <h1 className='text-red-600 text-lg'>payment complete : </h1>
+         <h1 className='text-orange-600 font-bold text-lg'>payment complete : </h1>
     
         <h1 className='text-lg pl-2'>{ PaymentComplete}</h1>
   

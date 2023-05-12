@@ -15,13 +15,13 @@ function AdminNavbar() {
             href="tel:5541251234"
             className="mr-6 text-sm  text-gray-500 dark:text-white hover:underline"
           >
-            (555) 412-1234
+           
           </a>
           <a
             href="#"
             className="text-sm  text-blue-600 dark:text-blue-500 hover:underline"
           >
-            Login
+            
           </a>
         </div>
       </div>

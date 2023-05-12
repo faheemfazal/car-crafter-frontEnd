@@ -45,7 +45,7 @@ import moment from 'moment'
     <div className=' p-10 h-full w-full items-center'>
         <h1 className='text-xl mb-2'>Host Details</h1>
         <div className='flex'>
-            <button className={`${hostData[0]?.status === 'pending' && 'border-b-4 border-yellow-600'} pl-3 pr-3 text-lg `} value={'pending'} onClick={approveAndDenile}>Pending</button>
+            <button className={`${hostData[0]?.status === 'pending' && 'border-b-4 border-yellow-600'} border-b-4 pl-3 pr-3 text-lg `} value={'pending'} onClick={approveAndDenile}>Pending</button>
             <button className={`${hostData[0]?.status === 'Approved' && 'border-b-4 border-green-700'} border-b-4 pl-3 pr-3 text-lg `}value={'Approved'} onClick={approveAndDenile}>Approve</button>
             <button className={`${hostData[0]?.status === 'Denial' && 'border-b-4 border-red-600'} border-b-4 pl-3 pr-3 text-lg `} value={'Denial'} onClick={approveAndDenile}>Denial</button>
 

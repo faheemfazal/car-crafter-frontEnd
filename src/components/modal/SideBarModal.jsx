@@ -58,7 +58,7 @@ function SideBarModal({open , setOpen, location, name}) {
           <div className="flex">
 
          <BiCurrentLocation className="text-black text-2xl ml-1 "/>
-          <button onClick={loginPage}
+          <button onClick={()=> navigate('/findPlace',{state:{location:location}})}
                 className=" text-black text-right ml-4  "
                 href=""
               >

@@ -48,9 +48,9 @@ function Login() {
         <div className='w-full mt-8 justify-center'>
             <form onSubmit={submitLogin} className='lg:w-383 sm:w-383 w-full  flex flex-col justify-center  ' >
                 <label htmlFor="" className='text-xl'>Username</label>
-                    <input type="text" name='email' onChange={handleChange} className='w-full border-2 border-gray-400 h-11 mt-1 rounded-xl' />
+                    <input type="text" name='email' onChange={handleChange} className='w-full border-2 border-gray-400 pl-2 h-11 mt-1 rounded-xl' />
                 <label htmlFor="" className='text-xl mt-5'>Password</label>
-                    <input type="text" name='password' onChange={handleChange} className='w-full border-2 border-gray-400 h-11 mt-1 rounded-xl' />
+                    <input type="text" name='password' onChange={handleChange} className='w-full border-2 pl-2 border-gray-400 h-11 mt-1 rounded-xl' />
 
                 <button type='submit' className='w-full h-11 bg-orange-400 rounded-xl mt-10 text-center font-semibold text-xl text-white'>Login</button>
             </form>

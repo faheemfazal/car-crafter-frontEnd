@@ -228,7 +228,7 @@ function CarDetailsScreen() {
                   </div>
                   </div>
                </div>
-                        <div className='bg-white shadow-xl  rounded-xl h- w-full h-36 mt-16'> 
+                        <div className='bg-white shadow-xl  rounded-xl h- w-full h-36 mt-6'> 
                         <h1 className='p-3'>Please review the final fare</h1>
                         <div className='flex justify-between -mt-2'>
                             <h1 className='text-2xl font-semibold ml-3'>₹{amount + Package + 99}</h1>

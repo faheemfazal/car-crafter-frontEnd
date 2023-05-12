@@ -90,7 +90,7 @@ const Homepage=()=>{
 
 
     return(
-        <div className={`h-screen ${touchPlace  && 'overflow-hidden'} ${ touchDate && 'overflow-hidden'} `}>
+        <div className={`h-screen   `}>
         <motion.div className="bg-web bg-cover bg-center  w-full h-screen  "
         initial={{width:0}}
         animate={{width:"100%"}}
@@ -104,14 +104,14 @@ const Homepage=()=>{
             <h1 className="sm:text-3xl text-xl text-center text-white font-semibold filter " >The perfect car for your next trip is just around the corner</h1>
          </div>
          
-         <div className="w-4/5 lg:w-2/5 sm:mt-4 mt-4  rounded-full  h-16 bg-white flex "  >
+         <div className="w-4/5 lg:w-2/5 sm:mt-4 mt-4  rounded-full  h-16 bg-white flex cursor-pointer"  >
             <div className='w-4/12 h-full flex-row justify-center ' onMouseOver={()=>{setTouch(true);}} >
-              <h1 className="pt-2 pl-1">{location}. {city && city} </h1>
+              <h1 className="pt-2 pl-1 cursor-pointer">{location}. {city && city} </h1>
               <PlaceSet open={touchPlace} setCity={setCity} setOpen={setTouch} sutable={sutable} location={location} setOpenDate={setDateTouch} />
             </div>
             <div className="w-5/12 h-full flex" onMouseOver={()=>{setDateTouch(true)}} 
             >
-                <p className="text-3xl font-light mt-1 text-green-600">|</p>
+                <p className="text-3xl font-light mt-1 cursor-pointer text-green-600">|</p>
                 <DateSet open={touchDate} setOpen={setDateTouch} endDate={endDate} setEndDate={setEndDate} selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
                 
                <h1>{}</h1>
@@ -124,7 +124,7 @@ const Homepage=()=>{
        name="meeting-time" 
  className=''/> */}
             </div>
-            <div className="w-4/12 h-full bg-green-600 rounded-r-full text-center m-auto py-4 font-bold text-white" onClick={findCar} >
+            <div className="w-4/12 h-full cursor-pointer bg-green-600 rounded-r-full text-center m-auto py-4 font-bold text-white" onClick={findCar} >
                 GET CAR
             </div>
          </div>

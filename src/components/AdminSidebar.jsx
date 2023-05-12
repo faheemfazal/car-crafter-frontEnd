@@ -54,7 +54,7 @@ function  AdminSidebar({children}) {
     {name:"Users",link:'/user',icon:FaUsersCog},
     {name:"Host Verify",link:'/host-verify',icon:SiCheckmarx},
     {name:"Add Location",link:'/addlocation',icon:BiLocationPlus},
-    {name:"Order Verify",link:'/orderAdminVerify',icon:GoUnverified},
+    {name:"Orders",link:'/orderAdminVerify',icon:GoUnverified},
     {name:"Payment",link:'/PaymentPage',icon:GiPayMoney},
     // {name:"Logout",link:'/admin',icon:HiOutlineLogout},
  ]

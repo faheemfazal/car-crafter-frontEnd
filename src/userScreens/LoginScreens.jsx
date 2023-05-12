@@ -14,7 +14,7 @@ function LoginScreens() {
 
   const dispatch = useDispatch()
   const oldDate = useSelector((state)=>state.userSlice)
-  console.log(oldDate);
+  console.log(oldDate.location,'kkkkkkkkk',oldDate);
 
   const emailverify = async (data) => {
     try {
@@ -32,11 +32,15 @@ function LoginScreens() {
            email: result.email,
            number:result.number
         }))
-        if(oldDate.place === null){
+        if(oldDate.location && oldDate.endDate){
+          navigate('/home')
 
-          navigate('/')
-        }else{
+        }else if
+        (oldDate.location){
+
           navigate('/place')
+        }else{
+          navigate('/')
         }
       } else {
         

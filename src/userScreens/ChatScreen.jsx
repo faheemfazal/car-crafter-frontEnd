@@ -85,13 +85,13 @@ function ChatScreen() {
   //   setMsg(message);
   // };
   return (
-    <div className=' h-screen   '>
+    <div className=' h-screen  w-screen  '>
       <HostNavbar />
       <div className=' flex justify-center w-full p-1'>
 
-        <div className='lg:w-3/5 w-full h-45rem sm:flex bg-white'>
-          <div className='w-5/12 border-r-2 sm:block hidden'>
-            <div className='flex bg-green-600 w-full h-16 ' >
+        <div className='lg:w-3/5 w-full h-[646px] mt-3 sm:flex bg-white'>
+          <div className='w-5/12 border-r-2 sm:block hidden rounded-lg'>
+            <div className='flex bg-green-600 w-full h-16 rounded-t-lg' >
               <div className='p-2 w-12 h-12 rounded-full bg-slate-50 m-2'>
                 <AiOutlineUser className='text-3xl' />
               </div>
@@ -100,9 +100,9 @@ function ChatScreen() {
             </div>
 
             {chatlist.map((data, index) =>
-            (<div className='flex bg-gray-100 hover:bg-slate-400 w-full h-16 ' onClick={(e) => { e.preventDefault(); setChatData(data) }} >
-              <div className='p-2 w-12 h-12 rounded-full bg-slate-50 m-2 '>
-                <AiOutlineUser className='text-3xl' />
+            (<div className='flex bg-gray-100 hover:bg-green-400 w-full h-16 ' onClick={(e) => { e.preventDefault(); setChatData(data) }} >
+              <div className='p- w-12 h-12 rounded-full bg-slate-50 m-2 '>
+<img className='' src="https://img.icons8.com/3d-fluency/94/null/user-male-circle.png"/>
               </div>
               <h1 className='text-xl text-black font-bold p-4'>{data.memdersData[0]?.name}</h1>
 

@@ -116,7 +116,7 @@ const Navbar = ({hide}) => {
             <li>
               <button 
                 className="text-black text-right  md:mt-0 bg-white mt-6  h-12 bg-white-50 border text-xl  sm:h-12 border-gray-300  
-                 text- rounded-3xl  focus:border-blue-500  p-2.5 md:before:content-['Become_a_'] drop-shadow-xl 
+                 text- rounded-3xl  focus:border-blue-500 -pt-1  p-2.5 md:before:content-['Become_a_'] drop-shadow-xl 
              " onClick={()=>{navigate('/host')}}
               >
                 {" "}

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function ImageSlider({ slider }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [sliders,setSlider] = useState(30)
+  const [sliders,setSlider] = useState(15)
   const [amount,setAmount] = useState(500)
   const navigate = useNavigate()
   const goToPrevious = () => {

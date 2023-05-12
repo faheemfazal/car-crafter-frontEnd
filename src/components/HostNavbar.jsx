@@ -26,6 +26,8 @@ function HostNavbar() {
   const [acc,setAcc] = useState(false)
   const [loader,setLoader]= useState(false)
   const { email,name,token,id } = useSelector((state) => state.userSlice);
+  const oldData = useSelector((state) => state.userSlice);
+
 
   useEffect(()=>{
     if(name){
@@ -40,6 +42,19 @@ function HostNavbar() {
     }
   },[])
   console.log(acc);
+
+  const switchTorent = ()=>{
+    if(oldData.location && oldData.endDate){
+      navigate('/home')
+
+    }else if
+    (oldData.location){
+
+      navigate('/place')
+    }else{
+      navigate('/')
+    }
+  }
 
   const handleHostForm = ()=>{
     if(token){
@@ -135,7 +150,7 @@ function HostNavbar() {
           <div className="flex pt-6 justify-items-center duration-75 relative ">
             <MdCarRental className="text-black text-2xl ml-5 " />
             <button
-              onClick={()=>navigate('/place')}
+              onClick={switchTorent}
               className=" text-black text-right ml-4  cursor-pointer"
               href=""
             >

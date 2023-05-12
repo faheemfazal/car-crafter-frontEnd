@@ -27,6 +27,7 @@ function RendUserHomeScreen() {
     const [lowtohigh,setLowtoHigh] = useState('')
     const [car,setCar]= useState([])
     console.log(selectedDate,selectedTime);
+    const [reset,setReset] = useState(false)
     const [message,setMessage] = useState('')
     const sutableLocation = localStorage.getItem('sutableLocation')
    console.log(sutableLocation);
@@ -51,7 +52,7 @@ function RendUserHomeScreen() {
         }
         console.log(res);
        })
-    },[])
+    },[reset])
     
     useEffect(()=>{
         
@@ -101,7 +102,7 @@ function RendUserHomeScreen() {
         </div>) }
         <div className='w-full h-full flex bg-gray-200'>
             
-           {open ? '' : (<div className='invisible md:static absolute  md:visible md: h-screen w-500 bg-white mt-5 '>
+           {open ? '' : (<div className='invisible md:static absolute  md:visible md: h-[700px] w-500  bg-white mt-5 '>
                 <div className='h-16 bg-green-600 rounded-tr-xl flex justify-between '>
                     <h1 className='text-white text-2xl m-3'>Filter</h1>
                      <BiChevronsLeft className='text-white text-4xl m-3 ' onClick={()=>setOpen(true)} />
@@ -109,17 +110,17 @@ function RendUserHomeScreen() {
                 <div className='mt-3'>
                     <div className='flex justify-between'>
                         <h1 className='text-xl ml-2'>Sort by</h1>
-                        <h1 className='font-bold text-2xl text-green-600 mr-2'>Reset</h1>
+                        <h1 className='font-bold text-2xl text-green-600 mr-2 cursor-pointer' onClick={()=>setReset(!reset)}>Reset</h1>
 
                     </div>
                         <h1 className='text-xl ml-2'>Price</h1>
                     <div className=' border-gray-300 w-full mt-3 ml-2  rounded-lg h-28 flex flex-wrap gap-y-0  '>
                         
                   
-                        <div className='w-2/5 h-3/5 border-2 flex flex-col justify-center items-center z-40 ' onClick={()=>filterHighToLow('LowtoHigh')} >
+                        <div className='w-2/5 h-3/5 border-2 flex flex-col justify-center items-center z-40 cursor-pointer' onClick={()=>filterHighToLow('LowtoHigh')} >
                         <h1>Low to High</h1>
                         </div>
-                        <div className='w-2/5 h-3/5 border-2 ml-4 flex flex-col justify-center items-center z-40 '  onClick={()=>filterHighToLow('HightoLow')}>
+                        <div className='w-2/5 h-3/5 border-2 ml-4 flex flex-col justify-center items-center z-40 cursor-pointer'  onClick={()=>filterHighToLow('HightoLow')}>
                         <h1>High to Low</h1>
 
                          
@@ -163,20 +164,23 @@ function RendUserHomeScreen() {
                         <h1 className='text-xl mt-8'>Transmission</h1>
                     </div>
                 </div>
-                <div className=' border-gray-300 w-full  rounded-lg h-24 flex flex-wrap gap-y-0 p-3 '>
-                        <div className='w-1/4 h-4/5 border-2 p-3 ' onClick={()=>FilterTransmission('Automatic')}>
-                        <h1 className='pt-1'>Automatic</h1>
-
-
-                        </div>
-                        <div className='w-1/4 h-4/5 border-2 p-3' onClick={()=>FilterTransmission('Manual')}>
-                        <h1 className='pt-1'>Manual</h1>
-
-
-                        </div>
-                   
+                <div className=' border-gray-300 w-full mt-3 ml-2  rounded-lg h-28 flex flex-wrap gap-y-0  '>
+                        
                   
-                 </div>
+                        <div className='w-2/5 h-3/5 border-2 flex flex-col justify-center items-center z-40 cursor-pointer' onClick={()=>FilterTransmission('Automatic')} >
+                        <h1>Automatic</h1>
+                        </div>
+                        <div className='w-2/5 h-3/5 border-2 ml-4 flex flex-col justify-center items-center z-40 cursor-pointer'  onClick={()=>FilterTransmission('Manual')}>
+                        <h1>Manual</h1>
+
+                         
+                        </div>
+                    
+               
+
+
+                    </div>
+              
 
 
                  <div className='ml-3'>
@@ -184,19 +188,23 @@ function RendUserHomeScreen() {
                         <h1 className='text-xl'>fual</h1>
                     </div>
                 </div>
-                <div className=' border-gray-300 w-full  rounded-lg h-24 flex flex-wrap gap-y-0 p-3 '>
-                        <div className='w-1/4 h-4/5 border-2 p-3 'onClick={()=>findFilter('Diesel')}>
-                        <h1 className='pt-1'>Diesel</h1>
-
+              
+                 <div className=' border-gray-300 w-full mt-3 ml-2  rounded-lg h-28 flex flex-wrap gap-y-0  '>
+                        
+                  
+                        <div className='w-2/5 h-3/5 border-2 flex flex-col justify-center items-center z-40 cursor-pointer' onClick={()=>findFilter('Diesel')} >
+                        <h1>Diesel</h1>
                         </div>
-                        <div className='w-1/4 h-4/5 border-2 p-3' onClick={()=>findFilter('Petrol')} >
-                        <h1 className='pt-1'>Petrol</h1>
+                        <div className='w-2/5 h-3/5 border-2 ml-4 flex flex-col justify-center items-center z-40 cursor-pointer'  onClick={()=>findFilter('Petrol')}>
+                        <h1>Petrol</h1>
 
+                         
                         </div>
+                    
+               
 
-                 
-                      
-                 </div>
+
+                    </div>
                  {/* <div className='flex p-4'>
                     <AiFillCar className='text-4xl' />
                     <div className='ml-2'>

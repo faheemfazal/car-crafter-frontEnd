@@ -21,7 +21,7 @@ function OtpScreen() {
 
    async function otpVerify(e){
     console.log('fff');
-    console.log(oldDate,'kkkkkkkkkkkk');
+    console.log(oldDate.place,'kkkkkkkkkkkk');
 
       e.preventDefault()  
       const response = await axiosuser({
@@ -47,7 +47,7 @@ function OtpScreen() {
            email: result.email,
            number:result.number
         }))
-        if(oldDate.place === null){
+        if(oldDate.place){
 
           navigate('/')
         }else{
