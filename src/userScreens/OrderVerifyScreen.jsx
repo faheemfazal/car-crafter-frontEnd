@@ -18,7 +18,7 @@ function OrderVerify() {
     setloader(true)
     checkprofile(token,id).then((res)=>{
       setloader(false)
-      console.log(res);
+    
       if(res.status === 201){
         setProfile(true)
          
@@ -37,27 +37,23 @@ function OrderVerify() {
   return (
     <div className='w-screen h-screen bg-slate-100'>
       <Navbar />
-      <div className='flex    m-5'>
+      <div className='lg:flex    m-5'>
         
-          <div className='w-1/2 h-96 justify-end '>
+          <div className='lg:w-1/2 w-full h-56 justify-end '>
             <div className='p-3 w-full h-52 bg-login  bg-cover bg-center rounded-x'>
               <div className=' border-2 border-red-700 rounded-lg bg-slate-100 h-24 mt-24  ' >
-                <h1 className={`${ profile ? 'text-green-600' : 'text-red-600' }  text-lg pl-2 pt-2 font-bold`} onClick={()=>navigate('/uploadproof')}>{`${profile ? 'Update your Proof' :'Proof Verify Pending'} `}</h1>
+                <h1 className={`${ profile ? 'text-green-600' : 'text-red-600' }  text-lg pl-2 pt-2 font-bold`} onClick={()=>navigate('/uploadproof')}>{`${profile ? 'Update your proof' :'Proof verify pending'} `}</h1>
                 <div className='flex justify-between '>
-                   <p className='pl-2 font-semibold'>{` ${profile ? 'proof already exists! ' : 'your booking will be pending if your profile verification is pending '}`} </p>
-                   <button className={`m-2 p-1 text-xl   rounded-xl text-white ${profile ? 'bg-green-600' : 'bg-green-200' } `} onClick={getorderlist} >Your car Details</button>
+                   <p className='pl-2 font-semibold '>{` ${profile ? 'Proof already exists! ' : 'Your booking will be pending if your profile verification is pending '}`} </p>
+                   <button className={`m-2 p-1 text-lg w-56  rounded-xl text-white ${profile ? 'bg-green-600' : 'bg-green-200' } `} onClick={getorderlist} >Your car details </button>
                 </div>
 
               </div>
 
             </div>
-            <div className='w-full h-full mt-3'>
-               <div className='border-2 rounded-lg h-36 bg-white'>
-
-               </div>
-            </div>
+         
           </div>
-          <div className='w-1/2 h-44'>
+          <div className='lg:w-1/2 w-full h-44'>
             <div className='w-full pl-2 pr-2 h-56'>
               <div className='w-full h-20 bg-slate-400 shadow-xl'>
                   <h1 className='font-semibold text-xl p-5'>Pick up process</h1>

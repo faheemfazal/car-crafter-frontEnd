@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 import { uploadprofile } from 'Api/profile';
 
 
+
 function UploadproofScreen() {
 
   const [options,selectOption]=useState()
@@ -38,7 +39,7 @@ function UploadproofScreen() {
         video.play();
     })
     .catch((err)=>{
-        console.log(err);
+        
     })
   }
 
@@ -53,7 +54,6 @@ function UploadproofScreen() {
     photo.height = height; 
 
     let ctz = photo.getContext('2d');
-    console.log(ctz,'.............');
     ctz.drawImage(video,0,0,width,height)
     setHashPhoto(true)
   }
@@ -64,27 +64,27 @@ function UploadproofScreen() {
     
     ctz.clearRect(0,0,photo.width, photo.height)
     const dataUrl = photo.toDataURL()
-    console.log(dataUrl,';;;;;;;;;');
+    
     setSnap(dataUrl)
-    console.log(snap,'////');
+
     setHashPhoto(false)
   }
    
 
   const handleProfileData = async ()=>{
     if(ImageIc && ImageIc){    
-      console.log('......');
+
         
       const res = await uploadprofile(token,id,imageLc,ImageIc)
-      console.log(res);
+    
       if(res.status === 201){
 
-        navigate('/verifyOrder')  
+        navigate('/listorderforuser')  
       }
         
     }else{
-
-        
+ 
+     
     }
   }
 
@@ -116,8 +116,8 @@ function UploadproofScreen() {
     <Navbar />
 
   <div className="flex justify-center">
-  <AiOutlineArrowLeft className="ml-5 mt-5 text-2xl" onClick={()=>{navigate('/verifyOrder')}} />
 
+  <AiOutlineArrowLeft className="ml-1 mt-5 text-2xl" onClick={()=>{navigate('/verifyOrder')}} />
          <div className=' md:mx-20  my:5 md:my-10  bg-red width-full justify-start w-full md:w-2/4 p-4'>
          <div className='flex flex-col'>
                   <h1 className='font-semibold text-2xl'>Add your licence and ID proof</h1>

@@ -28,15 +28,12 @@ function OrdersListScreen() {
   const [openModal,setOpenModal] = useState(false)
   const [openExpandModal,setOpenExpandModal] = useState(false)
   const date = new Date()
-  console.log(date,'llllllll');
 
   const [cancelIndex,setCancelIndex] = useState(null)
   const navigate = useNavigate()
 
   const getChat =async (userId)=>{
-    console.log(userId);
     const res = await createChat(id,userId,token)
-    console.log(res.data);
     if(res.status === 200){
 
       navigate(`/chat/${userId}` )
@@ -85,14 +82,14 @@ function OrdersListScreen() {
 
             </div>
           <div className='w-full h-14 bg-black flex'>
-            <div className={`w-1/3 h-full border-b-8 ${live && 'border-green-600'}  `} onClick={()=>{setCancel(false); setComplite(false);setLive(true)}}>
+            <div className={`w-1/3 h-full border-b-8 cursor-pointer ${live && 'border-green-600'}  `} onClick={()=>{setCancel(false); setComplite(false);setLive(true)}}>
               <h1 className='lg:text-xl text-lg  text-center text-white md:m-4  mt-4 '>LIVE & UPCOMING </h1>
             </div>
-            <div className={`w-1/3 h-full border-b-8 ${complite && 'border-green-600'} `}>
+            <div className={`w-1/3 h-full border-b-8 cursor-pointer ${complite && 'border-green-600'} `}>
             <h1 className='lg:text-xl text-lg text-center text-white m-4' onClick={()=>{setLive(false);setCancel(false); setComplite(true)}}>COMPLETED </h1>
 
             </div>
-            <div className={`w-1/3 h-full border-b-8 ${cancel && 'border-green-600'} `}  onClick={()=>{setLive(false);setComplite(false);setCancel(true); }}>
+            <div className={`w-1/3 h-full border-b-8 cursor-pointer ${cancel && 'border-green-600'} `}  onClick={()=>{setLive(false);setComplite(false);setCancel(true); }}>
               <h1 className='lg:text-xl text-lg text-center text-white m-4'>CANCELLED </h1>
 
             </div>
@@ -106,7 +103,7 @@ cancelOrder.map((data,index)=>(
  
               </div>
               <div className='w-1/4 h-full border-r-2 border-gray-200 p-5'>
-                <h1 className='text-2xl'>{data.carData.brand}</h1>
+                <h1 className='text-2xl'>{data.carData.brand.toLowerCase()}</h1>
   
               </div>
              <div className='h-4/5 w-2/4'>
@@ -154,7 +151,7 @@ compliteOrders.map((data,index)=>(
  
               </div>
               <div className='w-1/4 h-full border-r-2 border-gray-200 p-5'>
-                <h1 className='text-2xl'>{data.carData.brand}</h1>
+                <h1 className='text-2xl'>{data.carData.brand.toLowerCase()}</h1>
   
               </div>
              <div className='h-4/5 w-2/4'>
@@ -266,16 +263,16 @@ compliteOrders.map((data,index)=>(
                  <div className='w-full h-full flex'>
                   <div className='w-7/12'>
                     <div className=' m-4 font- '>
-                      <h1>Car Number : {data.carData.carNumber}</h1>
-                      <h1>Number : {data.carData.sNumber}</h1>
-                      <h1>City :{data.carData.city} </h1>
-                      <h1>Location :{data.carData.neighbourhood} </h1>
+                      <h1 className='font-bold' >Car Number :<span className='font-semibold'> {data.carData.carNumber}</span></h1>
+                      <h1 className='font-bold' >Number : <span className='font-semibold'>{data.carData.sNumber}</span></h1>
+                      <h1 className='font-bold' >City :<span className='font-semibold'>{data.carData.city.toLowerCase()}</span> </h1>
+                      <h1 className='font-bold' >Location :<span className='font-semibold'>{data.carData.neighbourhood.toLowerCase()} </span></h1>
 
                     </div>
                     <div className=' justify-between m-4'>
 
-                        <h1 className='font-'>From : <span>{data.carData.city}</span></h1>
-                        <h1 className='font-'>Car : <span>{data.carData.brand}</span></h1>
+                        <h1 className='font-bold'>From : <span className='font-semibold'>{data.carData.city.toLowerCase()}</span></h1>
+                        <h1 className='font-bold'>Car : <span className='font-semibold'>{data.carData.brand.toLowerCase()}</span></h1>
                         
                     </div>
                     <div className='justify-between m-5 flex'>
@@ -286,7 +283,6 @@ compliteOrders.map((data,index)=>(
 
 
                     </div>
-{console.log(data.endDate,'xxxxxxxxxx' ) }
                   </div>
                   
                   <div className='w-5/12 h-48 border-2 '>

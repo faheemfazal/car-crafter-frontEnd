@@ -30,7 +30,7 @@ function HostPaymentsetu() {
       
        findAccount(token,id).then((res)=>{
         
-         console.log(res);
+         
          if(res.status === 201){
           setOldAcvalue(res.data.oldAccount.bankAccount)
          }else{
@@ -46,7 +46,7 @@ function HostPaymentsetu() {
   
 
     const handleSubmit = async(event) => {
-      console.log('dfnsjdfjsbdgf');
+   
         event.preventDefault();
     
         // validate form inputs
@@ -68,15 +68,14 @@ function HostPaymentsetu() {
         }
    
         setErrors(errors);
-        console.log(errors,'sdgfsldfghjs');
+    
     
         // submit form data if no errors
         if (Object.keys(errors).length === 0) {
           // TODO: submit form data to server
-          console.log(accoundHolder,accountNumber,ifscCode,branch,accoundHolder);
-          console.log("a;ljsbgdfhjk")
+       
           const res = await postAccountDetails(accountNumber,branch,ifscCode,accoundHolder,token,id)
-          console.log(res,'lllllllllll');
+          
           setOldAcvalue(res.data.newAccount.bankAccount)
           setOldAccounnt(true)
 

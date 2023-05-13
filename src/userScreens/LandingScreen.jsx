@@ -22,9 +22,7 @@ const Landing = ()=>{
 
 
     const placeData=(location)=>{
-       
-        console.log(location);
-        console.log();
+ 
         dispatch(setLogin({
             ...reduxstate,
             location:location
@@ -36,9 +34,7 @@ const Landing = ()=>{
         setLoader(true)
         getLandingLocations().then((res)=>{
             setLoader(false)
-            console.log(res);
             setLocations(res)
-            console.log(locations);
         })
     },[])
    

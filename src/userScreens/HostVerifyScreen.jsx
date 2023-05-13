@@ -20,7 +20,7 @@ function HostVerifyScreen() {
       setLoader(true)
        checkAcc(id).then((res)=>{
         setLoader(false)
-          console.log(res);
+          
           if(res.status === 201){
             setAcc(true)
           }

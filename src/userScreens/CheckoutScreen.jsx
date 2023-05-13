@@ -54,10 +54,10 @@ function CheckoutScreen() {
       <h1 className="m-3 text-2xl font-semibold md:pl-10 ">
         Select a Payment method
       </h1>
-      <div className="lg:flex justify-center md:px-10 ">
-        <div className="lg:w-4/6 h-full flex justify-top w-full ">
+      <div className="lg:flex justify-center md:px-10 h-full">
+        <div className="lg:w-4/6 h-full flex border-r-2 justify-top w-full ">
           <div className="w-full h-full  bg-white items-top rounded-xl shadow-xl  border-2 border-gray-300 flex">
-            <div className="w-6/12 h-full border-r-2 p-3 pt-3">
+            <div className="w-6/12 h-[400px] border-r-2 p-3 pt-3">
               <h1 className="text-xl bg-slate-200 mt-3">
                 OTHER PAYMENT METHODS
               </h1>
@@ -85,7 +85,7 @@ function CheckoutScreen() {
                   </div>
                 </div>
                 <hr />
-                <div className="flex mt-1">
+                {/* <div className="flex mt-1">
                   <img
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACDUlEQVR4nO3ZT4hNYRjH8Y8J6ZZI+bcw41/2spCYhbKyt7GwIZoFZWVhaUGGspWNZEPKmhnlz1jIKCuKUvKvUf4O0hRHp55btxPuuZo79z3jfOtd3ee59/d7n+d9z3vPS03NrGMV9uICHuMDnuEo5kiYBnbiDB4h+8sYkhD5rG7EEdzA94LYT7iKgxjEUuyLz+72WnwuZhfO4mVB+A+M4wR2YP5v8ldG7IuZFr4gRJ3EQ/wsiH+Oc2FuSYnvmxd5UzOg3Vrsx2V8Lgj/ipFop03/uGizGF1hPYaj5MV2eYDj2P6HdknCyAZcKrTMa5zHbiyb7h/UBSMH8K1l5q9gi4ox1DIzF6O1Ksfqlkrcxh28a/MA6+aYxFh0SL6rleZYD0VnbcY9rChrZKwl8VUs6kV6x+KoxsfQNF52d3wTCXniGumwDu9D26EyCZMRfFh67Alt98sENw93/dJjYcsJoi3N9TFXmmRlH5hdPetMA1ltJDGyuiKJkdUVSYysKhUZwCi+xN/m/qoaGS2ceK9X1chkwUj+gqOSRkZmS0UGQnxemWtVXiPtqI2kRla3VmJkdUUSI/vvKjIVgfmdX2o0OrkIehrBW6XHYGh7Uib4dATfRJ906IuX6llcOrVlOd5Gwi1s63GbNUJD08REJxdMm1vMpDQmQltH5JU5Ff3Y3AB6MaZCw3Bcf9fU1
                              OicXxCUb8WWhAitAAAAAElFTkSuQmCC"
@@ -104,8 +104,8 @@ function CheckoutScreen() {
                     <h1 className="text-xl">Mobile wallet</h1>
                     <p className="text-sm ">All major wallets are supported</p>
                   </div>
-                </div>
-                <hr />
+                </div> */}
+                {/* <hr /> */}
                 {/* <div className='flex mt-1' >
                                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACZklEQVR4nO2ZPWgUQRTHfypBCzUWsTGRWCgWYqFWIilM0sZCSKGFlgoWfhQptBEhWGgjCBqICdhoPC3ES0DtFBEh
                         llqIWljko4ho0BgIcWTgf7DI3s64Fy8vl/3BY25v/zP33sybmdtZKCgoWJW0ASVgFnBGbBZ4BOz6lyBmDDjuqpj3rTUmkJIqPImtUCdagbJ8G4mpUEknS0FU2C7fvhFBZQit4mL9KwKxO
@@ -300,7 +300,7 @@ function CheckoutScreen() {
                   </div>
                 </div>
               )}
-              {wallet && (
+              {/* {wallet && (
                 <div className="h-72 w-full  border-b-2 justify-center">
                   <div className="flex justify-between">
                     <div className="p-4">
@@ -322,7 +322,7 @@ function CheckoutScreen() {
                           alt=""
                           className="w-20 h-20 m-5"
                         />
-                      </div>
+                      </div> */}
                       {/* <div className='w-4/12 p-3  mt-4 flex'> */}
                       {/* <div>
                                                 <div className='h-20 w-0 -mt-6 border-2'>
@@ -339,7 +339,7 @@ function CheckoutScreen() {
                                             </div> */}
 
                       {/* </div> */}
-                    </div>
+                    {/* </div>
                     <div></div>
                     <div className=" flex justify-end">
                       <button className="p-4 bg-slate-400  mr-3 rounded-xl mt-5">
@@ -348,7 +348,7 @@ function CheckoutScreen() {
                     </div>
                   </div>
                 </div>
-              )}
+              )} */}
 
               <div className="h-20 w-full shadow-md mt-2 rounded-md"></div>
             </div>

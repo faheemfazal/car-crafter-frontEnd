@@ -26,7 +26,6 @@ export const Number=()=>{
 
 const validateForm = () => {
   const newErrors = validatePhone({number})
-  console.log(newErrors,'llll/');
   setErrors(newErrors);
   return Object.keys(newErrors).length === 0;
 };
@@ -38,7 +37,6 @@ const validateForm = () => {
      
       e.preventDefault()
       
-      console.log(number);
       if (!validateForm()) return;
       const res = await numberCheck(number)
  
