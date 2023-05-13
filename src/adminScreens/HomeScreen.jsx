@@ -51,7 +51,7 @@ function HomeScreen() {
     if(!data){
       console.log('....');
       getdashBord().then((res)=>{
-       
+       console.log(res);
        if(res.status === 200){
            
          setPieData(res.data.data)
@@ -120,19 +120,76 @@ function HomeScreen() {
 
         
           <div className='mx-5 '>
-      <h1 className='text-semibold font-semibold text-2xl'>Monthly Report</h1>
-      <div className='mt-5'>
+      <h1 className='text-semibold font-semibold text-2xl mt-2'>Monthly orders </h1>
+      <div>
+        
+      </div>
+      <div className='ml-10 flex'>
+        <div className=''>
+          
+        
+  
       <BarChart width={400} height={300} data={barData}>
         <Bar dataKey="value" fill="#8884d8" />
       </BarChart>
-      <div className='flex -ml-3'>
-     {months.map((data)=>(
-      <h1 className=' ml-10'>{data}</h1>
+      <div className='flex -ml-5'>
+     {monthReport.map((data)=>(
+      <h1 className=' ml-8'>{data.month}</h1>
      ))  
 }
       </div>
+      </div>
+
+      <div className='flex mt-10'>
+      <div className=' -ml-3 '>
+      <table className='w-full'>
+      <thead className='bg-gray-50 border-b-2 border-gray-200'>
+          <tr className=''>
+              <th className='p-3 text-sm font-semibold tracking-wide text-left'>month</th>
+
+              <th className='p-3 text-sm font-semibold tracking-wide text-left'>orders</th>
+           
+
+          </tr>
+
+      </thead>
+      <tbody>
+     {monthReport.map((data)=>(
+  
+          <tr >
+          
+              <td className='p-3 text-sm text-gray-700 whitespace-nowrap' >{data.month}</td>
+              <td className='p-3 text-sm text-gray-700 whitespace-nowrap' >{data.profit_count}</td>
+     
+           
+
+          </tr>
+
+         
+
+))  
+}
+</tbody>
+
+</table>
+</div>
+{/* <div className=' -ml-3'>
+      {monthReport.map((entry, index) => (
+            <>
+            <h1 className='ml-10'>{entry.profit_count}</h1>
+            </>
+          ))}
+          </div> */}
+     
+        
 
       </div>
+      </div>
+
+
+
+
+
 
       <div className='flex justify-around pt-8 '>
      
@@ -178,10 +235,14 @@ function HomeScreen() {
           animationDuration={1500}
         >
           {pieData.map((entry, index) => (
+            <>
+           
             <Cell key={`cell-${index}`} fill={entry.color} />
+            </>
           ))}
         </Pie>
       </PieChart>
+ 
       </div>
     </div>
         </div>
