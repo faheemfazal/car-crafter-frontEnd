@@ -74,7 +74,7 @@ function OtpScreen() {
             </h1>
           </div>
           <form
-            className="h-614 flex flex-col justify-between"
+            className="h-[547px] flex flex-col justify-between"
             onSubmit={otpVerify}
           >
             <div className="pt-5">

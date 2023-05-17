@@ -82,7 +82,7 @@ function Signup1Screen() {
         animate={{ width: "100%" }}
         exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
       >
-        <div className=" h-  md:w-600  text-center flex flex-col justify-between ">
+        <div className=" h-[664px]  md:w-600  text-center flex flex-col justify-between ">
           <div>
             <AiOutlineArrowLeft
               className="ml-5 text-2xl m-2 "

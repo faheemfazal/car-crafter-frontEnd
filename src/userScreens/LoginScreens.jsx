@@ -93,7 +93,7 @@ function LoginScreens() {
               <GoogleLoginButton className="bg-dark-purple w-400   text-white rounded-md h-  mb-10" />
             </LoginSocialGoogle>
           </div>
-          <img src={image} alt="" />
+          <img src={image} alt="" className="w-[493px]"/>
         </div>
       </motion.div>
     </div>
