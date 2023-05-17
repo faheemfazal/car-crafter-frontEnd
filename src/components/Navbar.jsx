@@ -98,7 +98,7 @@ const Navbar = ({ hide }) => {
             <div className=" ">
               {/* {open ? ('') : (<AiOutlineMenu className="sm:text-white text-black" onClick={()=>{setOpen(true)}}/>)} */}
               <AiOutlineMenu
-                className="sm:text-white text-white"
+                className="sm:text-white text-white cursor-pointer"
                 onClick={() => {
                   setOpen(true);
                 }}
