@@ -13,7 +13,7 @@ function CancelOrder({open , setOpen , amount , startDate, orderData,token , use
     if(!open) return null 
 
     const handleCancel = async()=>{
-      const res  = await updateCancelOrder(token,createdAt,orderData,amount,userId)
+      const res  = await updateCancelOrder(token,createdAt,orderData,amount)
       if(res.status === 201){
           setMessage(res.data.message)
           setOpen(false)

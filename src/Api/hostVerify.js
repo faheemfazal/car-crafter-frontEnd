@@ -1,59 +1,7 @@
 import { axiosAdmin } from "axiosLink/axios";
 import { axiosuser } from "axiosLink/axios";
 
-export const postCar = async (
-  year,
-  fual,
-  description,
-  noOwner,
-  transmission,
-  brand,
-  features,
-  price,
-  state,
-  city,
-  neighbourhood,
-  sNumber,
-  imageRC,
-  imageIC,
-  km,
-  carNumber,
-  imageCar,
-  email,
-  owner,
-  token
-) => {
-  try {
-    const result = await axiosuser({
-      url: "/hostdata",
-      headers: { Authorization: `Bearer ${token}` },
-      method: "POST",
-      data: {
-        year,
-        fual,
-        description,
-        noOwner,
-        transmission,
-        brand,
-        features,
-        price,
-        state,
-        city,
-        neighbourhood,
-        sNumber,
-        imageRC,
-        imageIC,
-        km,
-        carNumber,
-        imageCar,
-        email,
-        owner,
-      },
-    });
 
-    return result;
-  } catch {}
-};
 
 export const getHosttData = async (token) => {
   try {
@@ -92,12 +40,26 @@ export const getapproveAndDenile = async (token, data) => {
   } catch (e) {}
 };
 
-export const getuserCar = async (id, token) => {
+export const getuserCar = async ( token) => {
   try {
-    const response = await axiosuser.get(`/gethostList?id=${id}`, {
+    const response = await axiosuser.get(`/gethostList`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response;
+  } catch {}
+};
+
+export const postCar = async (data,token
+) => {
+  try {
+    const result = await axiosuser({
+      url: "/hostdata",
+      headers: { Authorization: `Bearer ${token}` },
+      method: "POST",
+      data: data
+    });
+
+    return result;
   } catch {}
 };
 
@@ -107,7 +69,7 @@ export const postAccountDetails = async (
   ifscCode,
   accoundHolder,
   token,
-  id
+  
 ) => {
   try {
     const response = await axiosuser({
@@ -119,16 +81,16 @@ export const postAccountDetails = async (
         branch,
         ifscCode,
         accoundHolder,
-        id,
+        
       },
     });
     return response;
   } catch (e) {}
 };
 
-export const findAccount = async (token, id) => {
+export const findAccount = async (token) => {
   try {
-    const response = await axiosuser.get(`/getAccount?id=${id}`, {
+    const response = await axiosuser.get(`/getAccount`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response;

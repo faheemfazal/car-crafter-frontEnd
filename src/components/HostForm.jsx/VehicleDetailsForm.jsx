@@ -2,7 +2,7 @@ import React from 'react'
 
 function VehicleDetailsForm() {
   return (
-    <div className='ud   '>
+    <div className='ud        '>
       
     </div>
   )

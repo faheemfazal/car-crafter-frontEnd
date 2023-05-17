@@ -1,8 +1,8 @@
 import { axiosuser } from "axiosLink/axios";
 
-export const getOrderForlist = async (token, id) => {
+export const getOrderForlist = async (token) => {
   try {
-    const response = await axiosuser.get(`/getOrderForUser?id=${id}`, {
+    const response = await axiosuser.get(`/getOrderForUser`, {
       headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -15,7 +15,7 @@ export const updateCancelOrder = async (
   startDate,
   orderId,
   amount,
-  userId
+  
 ) => {
   try {
     const response = await axiosuser({
@@ -26,7 +26,7 @@ export const updateCancelOrder = async (
         startDate,
         orderId,
         amount,
-        userId,
+        
       },
     });
 

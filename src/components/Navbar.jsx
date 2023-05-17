@@ -108,7 +108,7 @@ const Navbar = ({ hide }) => {
           </div>
           <div className="flex mt-1">
             {/* <img src={carcrafterlogo} alt="" className="h-16 invisible md:visible " /> */}
-            <h1 className=" invisible md:visible  font-bold text-2xl text-center pt-3 ">
+            <h1 className=" invisible md:visible  font-bold text-2xl text-center pt-3 cursor-pointer " onClick={()=>navigate('/home')}>
               CarCrafter
             </h1>
           </div>

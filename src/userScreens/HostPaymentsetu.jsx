@@ -28,7 +28,7 @@ function HostPaymentsetu() {
 
     useEffect(()=>{
       
-       findAccount(token,id).then((res)=>{
+       findAccount(token).then((res)=>{
         
          
          if(res.status === 201){
@@ -74,7 +74,7 @@ function HostPaymentsetu() {
         if (Object.keys(errors).length === 0) {
           // TODO: submit form data to server
        
-          const res = await postAccountDetails(accountNumber,branch,ifscCode,accoundHolder,token,id)
+          const res = await postAccountDetails(accountNumber,branch,ifscCode,accoundHolder,token)
           
           setOldAcvalue(res.data.newAccount.bankAccount)
           setOldAccounnt(true)

@@ -57,8 +57,8 @@ function OrderVerifyAd() {
                     {/* <ViewApprove open={isOpen} setOpen={setIsOpen} carData={hostData[count]}  token={token} /> */}
                     <td className='p-3 text-sm text-gray-700 whitespace-nowrap' ><span className={`${data.orderStatus === 'complete Payment' && 'text-green-800 bg-green-200'}p-1.5 text-xs font-medium uppercase tracking-wider
                       rounded-lg bg-opacity-50 ${data.orderStatus === 'complete' && 'text-blue-800 bg-blue-200'} ${data.orderStatus === 'pending' && 'text-red-800 bg-red-200'} ${data.orderStatus === 'cancel' && 'text-orange-800 bg-orange-200'}`}>{data.orderStatus}</span></td>
-                    <td className='p-3 text-sm text-gray-700 whitespace-nowrap ' >{moment(data.startDate).format('DD MMM, YYYY')}</td>
-                    <td className='p-3 text-sm text-gray-700 whitespace-nowrap' >{ moment(data.endDate).format('DD MMM, YYYY')}</td>
+                    <td className='p-3 text-sm text-gray-700 whitespace-nowrap ' >{moment(data.startDate).format('DD / MMM / YYYY')}</td>
+                    <td className='p-3 text-sm text-gray-700 whitespace-nowrap' >{ moment(data.endDate).format('DD / MMM / YYYY')}</td>
 
                     <td className='p-3 text-sm text-gray-700 whitespace-nowrap' >{data.protectionPackage}</td>
                     <td className='p-3 text-sm text-gray-700 whitespace-nowrap' >{data.amount}</td>

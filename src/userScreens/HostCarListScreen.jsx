@@ -35,7 +35,7 @@ function HostCarListScreen() {
 
   useEffect(() => {
     setLoader(true);
-    getuserCar(id, token).then((res) => {
+    getuserCar( token).then((res) => {
       setLoader(false);
 
       if (res.status === 201) {
@@ -54,7 +54,7 @@ function HostCarListScreen() {
   }, [orderComplete]);
   const handleComplete = async (orderId) => {
     const res = await UpdateCompleteOrder(orderId, token);
-
+    
     if (res.status === 201) {
       setOrderComplete(res.data.data.status);
       message.success("success").then((res) => {});

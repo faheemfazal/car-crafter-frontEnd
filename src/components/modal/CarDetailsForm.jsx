@@ -84,7 +84,7 @@ function CarDetailsForm({
       neighbourhood &&
       sNumber
     ) {
-      const result = await postCar(
+      const data ={     
         year,
         fual,
         description,
@@ -104,8 +104,8 @@ function CarDetailsForm({
         imageCar,
         email,
         id,
-        token
-      );
+        }
+      const result = await postCar(data,token );
 
       if (result.status === 201) {
         navigate("/hostVerify");

@@ -6,6 +6,7 @@ import { createLocation } from 'Api/LocationAdd';
 import { deleteLocation } from 'Api/LocationAdd';
 import AdminSidebar from 'components/AdminSidebar';
 import AdminNavbar from 'components/AdminNavbar';
+import moment from 'moment';
 
 function AddLocation() {
     const {token} = useSelector((state)=>state.adminSlice)
@@ -166,7 +167,7 @@ function AddLocation() {
                     <td className='p-3 text-sm text-gray-700 whitespace-nowrap' >{data.state}</td>
            
                     <td className='p-3 text-sm text-gray-700 whitespace-nowrap' >{data.city}</td>
-                    <td className='p-3 text-sm text-gray-700 whitespace-nowrap' >{data.createdAt}</td>
+                    <td className='p-3 text-sm text-gray-700 whitespace-nowrap' >{moment(data.createdAt).format('DD / MM / YYY')}</td>
                     <td>
                     <button className='text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 
               focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ml-3' value={data._id} onClick={Locationhandle} >Delete</button>

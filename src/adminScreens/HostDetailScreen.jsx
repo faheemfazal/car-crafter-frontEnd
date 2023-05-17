@@ -56,7 +56,7 @@ import moment from 'moment'
                     <th className='p-3 text-sm font-semibold tracking-wide text-left'>Details</th>
                     <th className='p-3 text-sm font-semibold tracking-wide text-left'>Staus</th>
                     <th className='p-3 text-sm font-semibold tracking-wide text-left'>Data</th>
-                    <th className='p-3 text-sm font-semibold tracking-wide text-left'>Amount</th>
+                    <th className='p-3 text-sm font-semibold tracking-wide text-left'>Car number</th>
 
                 </tr>
 
@@ -66,7 +66,7 @@ import moment from 'moment'
                 (<tr >
                 
                     <td className='p-3 text-sm text-gray-700 whitespace-nowrap' >{index+1}</td>
-                    <td className='p-3 text-sm text-gray-700 whitespace-nowrap' ><button className='font-bold text-blue-500 hover:underline' onClick={()=> {setcount(index); setIsOpen(true)}} >view and approve</button></td>
+                    <td className='p-3 text-sm text-gray-700 whitespace-nowrap' ><button className='font-bold text-blue-500 hover:underline' onClick={()=> {setcount(index); setIsOpen(true)}} >{hostData[0]?.status === 'Approved' && 'view and denial'} {hostData[0]?.status === 'pending' && 'view and approve'} {hostData[0]?.status === 'Denial' && 'view and approve'}</button></td>
                     <ViewApprove open={isOpen} setOpen={setIsOpen} carData={hostData[count]}  token={token} />
                     <td className='p-3 text-sm text-gray-700 whitespace-nowrap' ><span className={`p-1.5 text-xs font-medium uppercase tracking-wider
                      ${hostData[0]?.status === 'pending' && 'text-yellow-800 bg-yellow-200' } ${hostData[0]?.status === 'Denial' && 'text-red-800 bg-red-200' } ${hostData[0]?.status === 'Approved' && 'text-green-800 bg-green-200' } rounded-lg bg-opacity-50`}>{data.status}</span></td>

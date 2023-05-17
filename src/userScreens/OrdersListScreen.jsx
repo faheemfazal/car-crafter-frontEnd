@@ -44,7 +44,7 @@ function OrdersListScreen() {
 
   useEffect(()=>{
     setloader(true)
-     getOrderForlist(token,id).then((res)=>{
+     getOrderForlist(token).then((res)=>{
     setloader(false)
 
 
