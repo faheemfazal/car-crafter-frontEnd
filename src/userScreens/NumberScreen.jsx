@@ -68,7 +68,7 @@ const validateForm = () => {
                 Enter Mobile Number
               </h1>
               </div>
-              <form className="h-614 flex flex-col justify-between" onSubmit={numberVerify}>
+              <form className="h-[548px] flex flex-col justify-between" onSubmit={numberVerify}>
               <div className="pt-5">
               <input type="number" className="  placeholder:text-2xl border rounded-2xl h-16 w-28  outline-none focus:outline-dark-purple" placeholder="+91  " ></input>
               
