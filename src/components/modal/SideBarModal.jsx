@@ -90,7 +90,7 @@ function SideBarModal({ open, setOpen, location, name }) {
                 className=" text-black text-right ml-4  "
                 href=""
               >
-                Profile
+                Proof verification
               </button>
             </div>
             {/* <h1 className=" font-bold text-green-600 mr-1 ">
