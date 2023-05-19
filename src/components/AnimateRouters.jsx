@@ -36,6 +36,7 @@ import AdminLogin from "adminScreens/LoginScreen";
 import PaymentScreen from "adminScreens/PaymentScreen";
 import ViewAndPayScreen from "adminScreens/ViewAndPayScreen";
 import ErrorScreen from "userScreens/ErrorScreen";
+import ProtectAdminRouter from "Utilites/ProtectAdminRouter";
 
 function AnimateRouters() {
   const location = useLocation();
@@ -80,7 +81,8 @@ function AnimateRouters() {
           <Route path="/chat/:reciverId" element={<ChatScreen />}></Route>
         </Route>
 
-        <Route path="/admin" element={<AdminLogin />}></Route>
+
+        <Route element={<ProtectAdminRouter />}>
         <Route path="/adminhome" element={<HomeScreen />}></Route>
         <Route path="/user" element={<UserDetail />}></Route>
         <Route path="/Host-verify" element={<HostDetailScreen />}></Route>
@@ -91,6 +93,10 @@ function AnimateRouters() {
           path="/viewAndpay/:userId"
           element={<ViewAndPayScreen />}
         ></Route>
+
+        </Route>
+
+        <Route path="/admin" element={<AdminLogin />}></Route>
 
         <Route path="/*" element={<ErrorScreen />}></Route>
         {/* <Route path="/admin/*" element={<ErrorScreen />}></Route> */}
