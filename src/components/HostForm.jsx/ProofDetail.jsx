@@ -73,7 +73,8 @@ function ProofDetail() {
               name="number"
               className="w-4/5 h-16 pl-4 mt-1 text-2xl text-gray-700 border outline-none lg:w-383 rounded-2xl focus:outline-dark-purple"
               value={number}
-              placeholder= {number}
+              placeholder={number ? number : 'Email'}
+
             ></input>
             <input
               type="text"

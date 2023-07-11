@@ -11,5 +11,7 @@ export const loginAdmin = async (data) => {
     } else {
       return false;
     }
-  } catch {}
+  } catch {
+    
+  }
 };

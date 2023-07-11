@@ -39,7 +39,7 @@ import ErrorScreen from "userScreens/ErrorScreen";
 import ProtectAdminRouter from "Utilites/ProtectAdminRouter";
 
 function AnimateRouters() {
-  const location = useLocation();
+  const location = useLocation(); 
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>

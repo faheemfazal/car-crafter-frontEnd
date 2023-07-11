@@ -10,5 +10,7 @@ export const UpdateCompleteOrder = async (orderId, token) => {
     });
 
     return response;
-  } catch (e) {}
+  } catch (e) {
+    
+  }
 };
