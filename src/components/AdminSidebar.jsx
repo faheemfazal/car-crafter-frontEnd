@@ -58,6 +58,9 @@ function AdminSidebar({ children }) {
     { name: "Payment", link: "/PaymentPage", icon: GiPayMoney },
     // {name:"Logout",link:'/admin',icon:HiOutlineLogout},
   ];
+
+  
+
   return (
     <div className="flex gap-6">
       <div

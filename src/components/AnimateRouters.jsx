@@ -37,6 +37,7 @@ import PaymentScreen from "adminScreens/PaymentScreen";
 import ViewAndPayScreen from "adminScreens/ViewAndPayScreen";
 import ErrorScreen from "userScreens/ErrorScreen";
 import ProtectAdminRouter from "Utilites/ProtectAdminRouter";
+import Prasad from "userScreens/Prasad";
 
 function AnimateRouters() {
   const location = useLocation(); 
@@ -44,6 +45,9 @@ function AnimateRouters() {
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route exact path="/" element={<Landing />}></Route>
+
+        <Route  path="/prasad" element={<Prasad />}></Route>
+
         <Route path="/place" element={<Homepage />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/number" element={<Number />}></Route>

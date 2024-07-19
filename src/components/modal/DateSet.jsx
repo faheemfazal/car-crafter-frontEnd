@@ -22,7 +22,7 @@ function DateSet({
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const minDate = new Date();
-  const maxDate = new Date("2023-12-31T00:00");
+  const maxDate = new Date("2024-12-31T00:00");
   const state = useSelector((state) => state.userSlice);
   const [setdate, setSetdate] = useState("");
 
@@ -32,16 +32,7 @@ function DateSet({
 
   if (!open) return null;
 
-  //   const changeDate =()=>{
-  //     console.log(selectedDate,'/??????');
-  //     console.log(endDate,';;;;;');
-  //     dispatch(setLogin({
-  //        ...state,
-  //        date:selectedDate,
-  //        endDate:endDate
-  //     }))
-  //     setOpen(false)
-  // }
+
 
   const handleStartDateChange = (date) => {
     setSelectedDate(date);
@@ -115,32 +106,11 @@ function DateSet({
                     />
                   </div>
                 </div>
-                {/* <button className='items-center bg-green-600 w-383 m-3 h-12 rounded-sm text-2xl font-semibold fixed bottom-12' onClick={changeDate} >Find</button> */}
               </div>
             </div>
           </div>
         </div>
 
-        {/* <div className="  flex flex-col  justify-center items-center "  >
-               <div className='m-auto  '>
-                <DatePicker
-                  selected={selectedDate}
-                  onChange={handleDateChange}
-                  open={true}
-                  showTimeSelect
-                  dateFormat="Pp"
-                  minDate={new Date()} maxDate={maxDate}
-                  className='appearance-none p-  ml-8 mr-8 text-xl bg-slate-200  h-full inline-block  '
-                />
-                
-                </div>   
-                   {/* <Datetime      onChange={handleDateChange} inputProps={inputProps}
-        value={selectedDate}   input={false}  isValidDate={isValidDate} minDate={selectedDate} maxDate={maxDate} className='appearance-none  ml-8 mr-8 text-xl bg-slate-200 w-full h-full'/> 
-          */}
-
-        {/* </div>
-       <div className=''>
-             </div> */}
       </div>
     </>
   );
